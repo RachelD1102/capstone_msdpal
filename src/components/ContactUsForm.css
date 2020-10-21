@@ -1,0 +1,31 @@
+.container {
+    position: absolute;
+    left: 40%;
+    top: 30%;
+    height: 200px;
+    margin-top: -100px; /* half of you height */
+    width: 400px;
+    margin-left: -200px; /* half of you width */
+}
+
+.aboutus-card{
+    width: 50rem;
+    box-shadow: 5px 10px #bebebe;
+}
+
+.title{
+    position: relative;
+    justify-content: center;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.text{
+    font-size: 1.5rem;
+    justify-content: center;
+    text-align: center;
+}
+
+.card-body{
+    background: #3a517d;
+}

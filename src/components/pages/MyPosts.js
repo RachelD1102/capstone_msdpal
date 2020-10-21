@@ -2,7 +2,7 @@ import React from "react";
 import UserNavbar from "../UserNavbar";
 
 
-export default function UserMainpage() {
+export default function MyPosts() {
   return (
     <>
     <UserNavbar />

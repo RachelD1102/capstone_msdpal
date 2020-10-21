@@ -1,9 +1,12 @@
 import React from 'react'
+import AboutUsForm from '../AboutUsForm'
+import Navbar from '../navBar'
 
 export default function AboutUs(){
     return(
         <>
-        <h1>AboutUs</h1>
+        <Navbar />
+        <AboutUsForm />
         </>
     )
 }

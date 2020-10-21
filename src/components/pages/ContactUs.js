@@ -1,9 +1,13 @@
 import React from 'react'
+import { Nav } from 'react-bootstrap'
+import ContactUsForm from '../ContactUsForm'
+import Navbar from '../navBar'
 
 export default function ContactUs(){
     return(
         <>
-        <h1>ContactUs</h1>
+        <Navbar />
+        <ContactUsForm />
         </>
     )
 }

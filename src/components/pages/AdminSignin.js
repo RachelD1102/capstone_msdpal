@@ -1,44 +1,61 @@
-import React from 'react'
-import Form3 from '../Form3'
+import React, { useState } from "react";
+import axios from "axios";
+import "../SigninForm.css";
+import { Redirect } from "react-router-dom";
+import Navbar from "../navBar";
 
+export default function AdminSignIn() {
+  const [password, setPassword] = useState("");
+  const [isSubmit, setSubmit] = useState(false);
 
-export default function SignIn(){
-    
-    return(
-        <div className="sign-up-page">
-            <Form3/>
+  const onSignin = async (event) => {
+    event.preventDefault();
+    await axios
+      .post("https://uofumsdpal.dev/api/admin/login", {
+        adminPassword: password,
+      })
+      .then(function (response) {
+        console.log(response);
+        setSubmit(true);
+      })
+      .catch(function (error) {
+        console.log(error.response.data);
+      });
+  };
+
+  if(isSubmit) return <Redirect to="/admin-mainpage" />;
+  return (
+    <div>
+      <Navbar />
+      <div className="sign-up-page">
+        <div className="form-container">
+          <span className="close-btn">×</span>
+          <div className="form-content-left">
+            <img className="form-img" src="img/img2.jpg" alt="theU" />
+          </div>
+          <div className="form-content-right">
+            <form className="form" noValidate>
+              <h1>Welcome Back!</h1>
+              <div className="form-inputs">
+                <label className="form-label">Password</label>
+                <input
+                  className="form-input"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Enter admin password"
+                />
+              </div>
+              <button
+              onClick={onSignin}
+              className="form-input-btn" 
+              type="submit">
+              Sign in
+            </button>
+            </form>
+          </div>
         </div>
-
-    )
+      </div>
+    </div>
+  );
 }
-// import React, { useState } from 'react';
-// import './Form.css';
-// import FormAdmin from './FormAdmin';
-// import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
-// import AdminPage from './pages/AdminPage';
-// import adminRequest from './adminRequest';
-
-
-// const adminSignin = () => {
-//   const [isSubmitted, setIsSubmitted] = useState(false);
-
-//   function submitForm() {
-//     setIsSubmitted(true);
-//   }
-
-//   return (
-//     <>
-//       <div className='form-container'>
-//         <span className='close-btn'>×</span>
-//         <div className='form-content-left'>
-//           <img className='form-img' src='img/img-2.jpg' alt='theU' />
-//         </div>
-//         {isSubmitted ? (<AdminPage/>) : (<FormAdmin submitForm={submitForm} />)}
-//       </div>
-//     </>
-//   );
-// };
-
-// export default adminSignin;
-
-

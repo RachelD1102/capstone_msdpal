@@ -1,12 +1,13 @@
 import React from 'react';
 import './LandingPage.css';
-import ResourceCrad from '../ResourceCard'
-import ControlledCarousel from '../Carousel'
-
+import ControlledCarousel from '../ControlledCarousel';
+import Navbar from '../navBar'
 function LandingPage() {
   return (
-    <>
-    </>
+    <div>
+    <Navbar />
+    <ControlledCarousel />
+    </div>
   );
 }
 

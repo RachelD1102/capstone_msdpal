@@ -3,10 +3,12 @@ export default function validateInfo(values) {
   
     if (!values.username.trim()) {
       errors.username = 'Username required';
+    }else if (!/^[A-Za-z]+/.test(values.name.trim())) {
+      errors.username = 'Enter a valid name with only letters';
+    }else if(!values.username.length < 3 || !values.username.length > 10){
+      errors.username = 'Username must be between 3 and 10 characters';
     }
-    // else if (!/^[A-Za-z]+/.test(values.name.trim())) {
-    //   errors.name = 'Enter a valid name';
-    // }
+
     if(!values.firstname.trim()) {
       errors.firstname = 'First name required'
     } else if (!/^[A-Za-z]+/.test(values.firstname.trim())) {

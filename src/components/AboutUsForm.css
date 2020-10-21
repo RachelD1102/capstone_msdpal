@@ -1,0 +1,31 @@
+.container {
+    position: absolute;
+    left: 40%;
+    top: 30%;
+    height: 200px;
+    margin-top: -100px; /* half of you height */
+    width: 400px;
+    margin-left: -200px; /* half of you width */
+}
+
+.aboutus-card{
+    width: 50rem;
+    box-shadow: 5px 10px #bebebe;
+}
+
+.title{
+    position: relative;
+    font-size: 2rem;
+}
+
+.text{
+    font-size: 1.5rem;
+}
+
+.card-body{
+    background: linear-gradient(
+      90deg,
+      rgb(196, 225, 250) 0%,
+      rgb(114, 179, 236) 100%
+    );
+}
