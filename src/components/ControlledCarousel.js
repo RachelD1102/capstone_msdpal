@@ -10,9 +10,9 @@ export default function ControlledCarousel(){
   }
   
   const contentStyle = {
-    height: '1000px',
+    height: '800px',
     color: '#fff',
-    lineHeight: '200px',
+    lineHeight: '100px',
     textAlign: 'center',
     background: '#364d79',
   };
@@ -20,16 +20,16 @@ export default function ControlledCarousel(){
   return (
     <Carousel afterChange={onChange}>
       <div>
-        <h3 style={contentStyle}>1</h3>
+        <h3 style={contentStyle}>News Title1</h3>
       </div>
       <div>
-        <h3 style={contentStyle}>2</h3>
+        <h3 style={contentStyle}>News Title2</h3>
       </div>
       <div>
-        <h3 style={contentStyle}>3</h3>
+        <h3 style={contentStyle}>News Title3</h3>
       </div>
       <div>
-        <h3 style={contentStyle}>4</h3>
+        <h3 style={contentStyle}>News Title4</h3>
       </div>
       {/* <div>
         <h3 className="cc">1</h3>

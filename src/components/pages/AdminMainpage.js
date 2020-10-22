@@ -27,7 +27,7 @@ export default function AdminMainpage() {
   const onGenerateCode = async (event) => {
     event.preventDefault();
     await axios
-      .post("https://uofumsdpal.dev/api/admin/new_user", {
+      .post("/api/admin/new_user", {
         adminPassword: password,
         uid: uID,
       })
@@ -43,7 +43,7 @@ export default function AdminMainpage() {
   const onCheckCode = async (event) => {
     event.preventDefault();
     await axios
-      .post("https://uofumsdpal.dev/api/admin/get_user", {
+      .post("/api/admin/get_user", {
         adminPassword: password,
         uid: uID,
       })

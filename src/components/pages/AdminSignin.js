@@ -11,7 +11,7 @@ export default function AdminSignIn() {
   const onSignin = async (event) => {
     event.preventDefault();
     await axios
-      .post("https://uofumsdpal.dev/api/admin/login", {
+      .post("/api/admin/login", {
         adminPassword: password,
       })
       .then(function (response) {

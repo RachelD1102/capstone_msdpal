@@ -16,7 +16,7 @@ export default function AdminMainPage() {
   const onPostNews = async (event) => {
     event.preventDefault();
     await axios
-      .post("https://uofumsdpal.dev/api/news", {
+      .post("/api/news", {
         adminPassword: password,
         title:newsTitle,
         contents: content,
@@ -43,7 +43,7 @@ export default function AdminMainPage() {
         </div>
         <div className="form-content-right">
           <form className="form" noValidate>
-            <h1>Your news has submitted successfully!</h1>
+            <h1>Your news has been submitted successfully!</h1>
           </form>
         </div>
       </div>

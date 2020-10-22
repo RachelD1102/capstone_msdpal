@@ -12,7 +12,7 @@ export default function SignIn() {
   const onSubmit = async (event) => {
     event.preventDefault();
     await axios
-      .post("https://uofumsdpal.dev/api/users/signin", {
+      .post("/api/users/signin", {
         email: email,
         password: password,
       })

@@ -3,12 +3,12 @@ import UserNavbar from "../UserNavbar";
 import "../SigninForm.css";
 import axios from "axios";
 
-
+axios.defaults.withCredentials = true
 
 export default function MyProfile() {
   useEffect( () => {
     axios
-      .get("https://uofumsdpal.dev/api/users/currentuser", {
+      .get("/api/users/currentuser", {
       })
       .then(function (response) {
         console.log(response);

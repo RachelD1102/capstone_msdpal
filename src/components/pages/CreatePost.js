@@ -1,65 +1,102 @@
-import React from "react";
+import React, {useState} from "react";
 import UserNavbar from "../UserNavbar";
 import "./CreatePost.css";
+import axios from "axios";
+
+axios.defaults.withCredentials = true
 
 export default function CreatePost() {
+  const [postTitle, setPostTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [url, setUrl] = useState("");
+  const [category, setCategory] = useState("");
+  const [isSuccess, setSuccess] = useState(false);
+
+  const onCreatePost = async (event) => {
+    event.preventDefault();
+    await axios
+      .post("/api/posts", {
+        title: postTitle,
+        contents: content,
+        category: category,
+        img: url,
+      })
+      .then(function (response) {
+        console.log(response);
+        setSuccess(true);
+      })
+      .catch(function (error) {
+        console.log(error.response.data);
+      });
+  };
+
+  if (isSuccess)
+    return (
+      <>
+        <div>
+          <UserNavbar />
+        </div>
+        <div className="create-post-container">
+          <form className="create-post-form">
+            <h1 className="title">Your post has been submitted successfully!</h1>
+          </form>
+        </div>
+      </>
+    );
+
   return (
     <>
       <div>
         <UserNavbar />
       </div>
       <div className="create-post-container">
-        <form className="create-post-form" >
+        <form className="create-post-form">
           <h1 className="title">Create Your New Post Here!</h1>
           <div className="post-container">
             <label className="form-label">Title</label>
             <input
               className="post-title"
               type="text"
-              //name="username"
               placeholder="Enter your post title here"
-              //value={username}
-              //onChange={(e) => setUsername(e.target.value)}
+              value={postTitle}
+              onChange={(e) => setPostTitle(e.target.value)}
             />
-            {/* {errors.username && <p>{errors.username}</p>} */}
           </div>
           <div className="post-container">
             <label className="form-label">Content</label>
             <textarea
               className="post-inputs"
               type="text"
-              //name="username"
               placeholder="Enter your content here"
-              //value={username}
-              //onChange={(e) => setUsername(e.target.value)}
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
             />
-            {/* {errors.username && <p>{errors.username}</p>} */}
           </div>
           <div className="post-container">
             <label className="form-label">Photo Url (Optional)</label>
             <input
               className="photo-url"
               type="text"
-              //name="firstname"
               placeholder="Enter the photo Url"
-              //value={firstName}
-              //onChange={(e) => setFirstname(e.target.value)}
+              value={url}
+              onChange={(e) => setUrl(e.target.value)}
             />
-            {/* {errors.firstname && <p>{errors.firstname}</p>} */}
           </div>
           <div className="post-container">
             <label className="form-label">Category</label>
             <input
               className="post-title"
               type="text"
-              //name="username"
               placeholder="Enter the category"
-              //value={username}
-              //onChange={(e) => setUsername(e.target.value)}
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
             />
             {/* {errors.username && <p>{errors.username}</p>} */}
           </div>
-          <button className="post-submit-btn" type="submit">
+          <button
+          onClick={onCreatePost}
+          className="post-submit-btn" 
+          type="submit">
             Submit
           </button>
         </form>
