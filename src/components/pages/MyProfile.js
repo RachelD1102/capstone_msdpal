@@ -1,4 +1,4 @@
-import React, { useEffect }from "react";
+import React, { useEffect, useState }from "react";
 import UserNavbar from "../UserNavbar";
 import "../SigninForm.css";
 import axios from "axios";
@@ -6,26 +6,98 @@ import axios from "axios";
 axios.defaults.withCredentials = true
 
 export default function MyProfile() {
-  useEffect( () => {
-    axios
-      .get("/api/users/currentuser", {
-      })
-      .then(function (response) {
-        console.log(response);
-        //setResponseCode(response.data.code);
-      })
-      .catch(function (error) {
-        console.log(error.response.data);
-      });
-  });
+  // const [username, setUsername] = useState("");
+  // const [firstName, setFirstname] = useState("");
+  // const [lastname, setLastname] = useState("");
+  // const [uid, setUid] = useState("");
+  // const [gradyear, setGrayear] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [place, setPlace] = useState("");
+  // const [intro, setIntro] = useState("");
+  // const [code, setCode] = useState("");
+  const [id, setId] = useState("");
+  const [disabled, setDisabled] = useState(false);
+  const [user, setUser] = useState({
+    username: "",
+    firstname: "",
+    lastname: "",
+    uid: "",
+    gradyear: "",
+    email: "",
+    place: "",
+    intro: "",
+    code: ""
+  })
+
+  // const onSubmit = async (event) => {
+  //   event.preventDefault();
+  //   await axios
+  //     .post("/api/users/signup", {
+  //       email: email,
+  //       password: password,
+  //       username: username,
+  //       firstName: firstName,
+  //       lastName: lastName,
+  //       code: code,
+  //       gradYear: gradyear,
+  //       uid: uID,
+  //     })
+  //     .then(function (response) {
+  //       if(response.status === 201) {
+  //         setVerified(true);
+  //       }
+  //       console.log(response);
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error.response.data);
+  //     });
+
+  // };
+
+  // useEffect(() => {
+  //   function handleStatusChange(status) {
+  //     setDisabled(status.disabled);
+  //   };
+  const onEdit = () => {
+    setDisabled(true);
+  };
+  
+
+  // useEffect( () => {
+  //   axios.get("/api/users/currentuser", {})
+  //     .then(function (response) {
+  //       console.log(response);
+  //       id = response.id;
+  //       axios.get("/api/users/currentuser", {
+  //         id: id
+  //       })
+  //       .then(function (response) {
+  //         console.log(response);
+  //         const currentuser = JSON.parse(response.data);
+  //         setUser(currentuser);
+  //       })
+  //       .catch(function (error) {
+  //         console.log(error.response.data);
+  //       });
+  //       // const currentuser = JSON.parse(response.data);
+  //       // setUser(currentuser);
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error.response.data);
+  //     });
+  // });
+
+  
   // const onCurrentUser = async (event) => {
   //   event.preventDefault();
   //   await axios
-  //     .get("https://uofumsdpal.dev/api/users/currentuser", {
+  //     .get(`/api/users/${id}`, {
+  //       id: id
   //     })
   //     .then(function (response) {
   //       console.log(response);
-  //       //setResponseCode(response.data.code);
+  //       const currentuser = JSON.parse(response.data);
+  //       setUser(currentuser);
   //     })
   //     .catch(function (error) {
   //       console.log(error.response.data);
@@ -42,6 +114,7 @@ export default function MyProfile() {
           <div className="form-inputs">
             <label className="form-label">Username</label>
             <input
+              disabled={disabled}
               className="form-input"
               type="text"
               //name="username"
@@ -54,6 +127,7 @@ export default function MyProfile() {
           <div className="form-inputs">
             <label className="form-label">First Name</label>
             <input
+              disabled={disabled}
               className="form-input"
               type="text"
               //name="firstname"
@@ -66,6 +140,7 @@ export default function MyProfile() {
           <div className="form-inputs">
             <label className="form-label">Last Name</label>
             <input
+              disabled={disabled}
               className="form-input"
               type="text"
               //name="lastname"
@@ -78,6 +153,7 @@ export default function MyProfile() {
           <div className="form-inputs">
             <label className="form-label">uNID</label>
             <input
+              disabled={disabled}
               className="form-input"
               type="text"
               //name="uNID"
@@ -90,6 +166,7 @@ export default function MyProfile() {
           <div className="form-inputs">
             <label className="form-label">Grad Year</label>
             <input
+              disabled={disabled}
               className="form-input"
               type="number"
               //name="gradyear"
@@ -102,6 +179,7 @@ export default function MyProfile() {
           <div className="form-inputs">
             <label className="form-label">Email</label>
             <input
+              disabled={disabled}
               className="form-input"
               type="email"
               //name="email"
@@ -126,6 +204,7 @@ export default function MyProfile() {
           <div className="form-inputs">
             <label className="form-label">Placement</label>
             <input
+              disabled={disabled}
               className="form-input"
               type="text"
               //name="password"
@@ -138,6 +217,7 @@ export default function MyProfile() {
           <div className="form-inputs">
             <label className="form-label">Introduction</label>
             <textarea
+              disabled={disabled}
               className="form-input"
               type="text"
               //name="password"
@@ -163,6 +243,7 @@ export default function MyProfile() {
           <div className="form-inputs">
             <label className="form-label">Invitation Code</label>
             <input
+              disabled={disabled}
               className="form-input"
               type="text"
               //name="invitationcode"
@@ -172,7 +253,10 @@ export default function MyProfile() {
             />
             {/* {errors.password2 && <p>{errors.password2}</p>} */}
           </div>
-          <button className="edit-btn" type="submit">
+          <button 
+          onClick={onEdit}
+          className="edit-btn" 
+          type="submit">
             Edit
           </button>
           {/* <span className="form-input-login">
@@ -187,4 +271,4 @@ export default function MyProfile() {
     </>
   );
   
-}
+      }
