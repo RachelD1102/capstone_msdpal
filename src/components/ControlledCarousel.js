@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-// import 'antd/dist/antd.css';
 import Carousel from 'react-bootstrap/Carousel'
-//import { Carousel } from 'antd';
 import './ControlledCarousel.css'
-//import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 
 export default function ControlledCarousel() {
@@ -18,7 +16,7 @@ export default function ControlledCarousel() {
       <Carousel.Item style={{'height':"500px"}}>
         <img
           className="d-block w-100"
-          src="holder.js/800x400?text=First slide&bg=373940"
+          src="/img/img2.jpg"
           alt="First slide"
         />
         <Carousel.Caption>
@@ -29,7 +27,7 @@ export default function ControlledCarousel() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="holder.js/800x400?text=Second slide&bg=282c34"
+          src="/img/img2.jpg"
           alt="Second slide"
         />
 
@@ -41,7 +39,7 @@ export default function ControlledCarousel() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="holder.js/800x400?text=Third slide&bg=20232a"
+          src="/img/img2.jpg"
           alt="Third slide"
         />
 

@@ -16,7 +16,8 @@ export default function MyProfile() {
   // const [intro, setIntro] = useState("");
   // const [code, setCode] = useState("");
   const [id, setId] = useState("");
-  const [disabled, setDisabled] = useState(false);
+  const [disabled, setDisabled] = useState(true);
+  const [isSubmited, setSubmited] = useState(false);
   const [user, setUser] = useState({
     username: "",
     firstname: "",
@@ -59,8 +60,12 @@ export default function MyProfile() {
   //     setDisabled(status.disabled);
   //   };
   const onEdit = () => {
-    setDisabled(true);
+    setDisabled(false);
   };
+
+  const onSave = () => {
+    setSubmited(true);
+  }
   
 
   // useEffect( () => {
@@ -256,8 +261,14 @@ export default function MyProfile() {
           <button 
           onClick={onEdit}
           className="edit-btn" 
-          type="submit">
+          type="button">
             Edit
+          </button>
+          <button 
+          onChange={onSave}
+          className="edit-btn" 
+          type="submit">
+            Save
           </button>
           {/* <span className="form-input-login">
           Already have an account? Login <a href="#">here</a>

@@ -14,20 +14,10 @@ import AdminManage from "./components/pages/AdminManage";
 import MyProfile from "./components/pages/MyProfile";
 import CreatePost from "./components/pages/CreatePost";
 import MyPosts from "./components/pages/MyPosts";
+import GetAllUser from "./components/pages/GetAllUser";
 
 function App() {
   return (
-    //<LandingPage />
-    // <Router>
-    //   <NavBar />
-    //   <Switch>
-    //     <Route path='/sign-in' exact component={SignIn} />
-    //     <Route path='/sign-up' exact component={SignUp} />
-    //     <Route path='/contact-us' exact component={ContactUs} />
-    //     <Route path='/about-us' exact component={AboutUs} />
-    //   </Switch>
-    // </Router>
-
     <Router>
       <Switch>
         <Route exat path="/" exact component={LandingPage} />
@@ -43,6 +33,7 @@ function App() {
         <Route exat path="/user-myposts" exact component={MyPosts} /> 
         <Route exat path="/user-createposts" exact component={CreatePost} />
         <Route exat path="/admin-mainpage" exact component={AdminMainpage} />
+        <Route exat path="/user-getallusers" exact component={GetAllUser} />
       </Switch>
     </Router>
   );

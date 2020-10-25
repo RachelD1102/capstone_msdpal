@@ -231,7 +231,7 @@
 
 .edit-btn {
   width: 20%;
-  height: 50px;
+  height: 30px;
   margin-top: 13px;
   border-radius: 6px;
   background: linear-gradient(
@@ -242,7 +242,7 @@
   outline: none;
   border: none;
   color: #fff;
-  font-size: 1.3rem;
+  font-size: 1rem;
   padding: 6px;
 }
 

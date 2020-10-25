@@ -7,7 +7,13 @@ export default function UserMainpage() {
   return (
     <>
     <UserNavbar />
+    <div>
     <PostCard />
+    <PostCard />
+    <PostCard />
+    <PostCard />
+    <PostCard />
+    </div>
     </>
   );
   

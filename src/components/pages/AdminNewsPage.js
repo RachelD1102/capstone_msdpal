@@ -32,6 +32,10 @@ export default function AdminMainPage() {
       });
   };
 
+  const onGoback = () => {
+    setGoback(true);
+  };
+
   if(isSuccess) return (
     <>
     <Navbar />
@@ -57,7 +61,6 @@ export default function AdminMainPage() {
     <Navbar />
     <div className="sign-up-page">
       <div className="form-container">
-        <span className="close-btn">×</span>
         <div className="form-content-left">
           <img className="form-img" src="img/img2.jpg" alt="theU" />
         </div>
@@ -113,13 +116,13 @@ export default function AdminMainPage() {
             >
               Submit the News
             </button>
-            <button
+            {/* <button
              className="form-back-btn"
-             type="submit"
-             onClink={() => setGoback(true)}
+             type="button"
+             onClink={onGoback}
             >
              Main Page
-            </button>
+            </button> */}
           </form>
         </div>
       </div>

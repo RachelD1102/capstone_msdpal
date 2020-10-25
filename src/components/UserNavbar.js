@@ -48,6 +48,18 @@ export default function UserNavbar() {
               onMouseLeave={onMouseLeave}
             >
               <Link
+                to='/user-mainpage'
+                className='nav-links'
+                onClick={closeMobileMenu}
+              >
+                Home
+              </Link>
+            </li>
+            <li className='nav-item'
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+            >
+              <Link
                 to='/user-myprofile'
                 className='nav-links'
                 onClick={closeMobileMenu}
@@ -71,6 +83,15 @@ export default function UserNavbar() {
                 onClick={closeMobileMenu}
               >
                 Create new Post
+              </Link>
+            </li>
+            <li className='nav-item'>
+              <Link
+                to='/user-getallusers'
+                className='nav-links'
+                onClick={closeMobileMenu}
+              >
+                Get All Users
               </Link>
             </li>
             <li className='nav-item'>
