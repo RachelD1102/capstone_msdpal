@@ -1,154 +1,92 @@
-import React, { useState } from 'react';
-import Carousel from 'react-bootstrap/Carousel'
-import './ControlledCarousel.css'
-import 'bootstrap/dist/css/bootstrap.css';
-
+import React, { useState, useEffect } from "react";
+import Carousel from "react-bootstrap/Carousel";
+import "./ControlledCarousel.css";
+import "bootstrap/dist/css/bootstrap.css";
+import axios from "axios";
 
 export default function ControlledCarousel() {
   const [index, setIndex] = useState(0);
+  //id, title, contents, category, *img, date
+  const [news1, setNews1] = useState({
+    id: "",
+    title: "",
+    contents: "", //same
+    category: "",
+    img: "",
+    date: "",
+  });
+
+  const [news2, setNews2] = useState({
+    id: "",
+    title: "",
+    contents: "",
+    category: "",
+    img: "",
+    date: "",
+  });
+
+  const [news3, setNews3] = useState({
+    id: "",
+    title: "",
+    contents: "",
+    category: "",
+    img: "",
+    date: "",
+  });
+
+  useEffect(() => {
+    axios
+      .get("/api/query/news/latest/3", {})
+      .then(function (response) {
+        console.log(response);
+        const fetchNews = response.data[0];
+        const fetchNews2 = response.data[1];
+        const fetchNews3 = response.data[2];
+        console.log(fetchNews);
+        setNews1(fetchNews);
+        setNews2(fetchNews2);
+        setNews3(fetchNews3);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
 
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
+  //       window.location.href = "/";
 
   return (
-    <Carousel activeIndex={index} onSelect={handleSelect}>
-      <Carousel.Item style={{'height':"500px"}}>
-        <img
-          className="d-block w-100"
-          src="/img/img2.jpg"
-          alt="First slide"
-        />
+    <Carousel
+      className="carousel-container"
+      activeIndex={index}
+      onSelect={handleSelect}
+      indicators={false}
+    >
+      <Carousel.Item className="carousel-item">
+        <img className="carousel-image" src={news1.img} alt="First slide" />
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h2>{news1.title}</h2>
+          <h3>{news1.contents}</h3>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="/img/img2.jpg"
-          alt="Second slide"
-        />
+        <img className="carousel-image" src={news2.img} alt="Second slide" />
 
         <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h2>{news2.title}</h2>
+          <h3>{news2.contents}</h3>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="/img/img2.jpg"
-          alt="Third slide"
-        />
+        <img className="carousel-image" src={news3.img} alt="Third slide" />
 
         <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+          <h2>{news3.title}</h2>
+          <h3>{news3.contents}</h3>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
   );
 }
-// export default function ControlledCarousel(){
-
-
-  // function onChange(a, b, c) {
-  //   console.log(a, b, c);
-  // }
-  
-  // const contentStyle = {
-  //   height: '800px',
-  //   color: '#fff',
-  //   lineHeight: '100px',
-  //   textAlign: 'center',
-  //   background: '#66aaf3',
-  // };
-  
-  // return (
-  //   <Carousel afterChange={onChange}>
-  //     <div>
-  //       <h3 style={contentStyle}>News Title1</h3>
-  //     </div>
-  //     <div>
-  //       <h3 style={contentStyle}>News Title2</h3>
-  //     </div>
-  //     <div>
-  //       <h3 style={contentStyle}>News Title3</h3>
-  //     </div>
-  //     <div>
-  //       <h3 style={contentStyle}>News Title4</h3>
-  //     </div>
-      {/* <div>
-        <h3 className="cc">1</h3>
-      </div>
-      <div>
-        <h3 className="cc">2</h3>
-      </div>
-      <div>
-        <h3 className="cc">3</h3>
-      </div>
-      <div>
-        <h3 className="cc">4</h3>
-      </div> */}
-  //   </Carousel>
-  // );
-
-
-// export default function ControlledCarousel() {
-//     const [index, setIndex] = useState(0);
-  
-//     const handleSelect = (selectedIndex, e) => {
-//       setIndex(selectedIndex);
-//     };
-  
-//     return (
-//     <div className="controlled-carousel">
-//       <Carousel activeIndex={index} onSelect={handleSelect}>
-//         <Carousel.Item>
-//           <img
-//             className="d-block w-100"
-//             src="holder.js/800x400?text=First slide&bg=373940"
-//             alt="First slide"
-//           />
-//           <Carousel.Caption>
-//             <h3>First slide label</h3>
-//             <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-//           </Carousel.Caption>
-//         </Carousel.Item>
-//         <Carousel.Item>
-//           <img
-//             className="d-block w-100"
-//             src="holder.js/800x400?text=Second slide&bg=282c34"
-//             alt="Second slide"
-//           />
-  
-//           <Carousel.Caption>
-//             <h3>Second slide label</h3>
-//             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-//           </Carousel.Caption>
-//         </Carousel.Item>
-//         <Carousel.Item>
-//           <img
-//             className="d-block w-100"
-//             src="holder.js/800x400?text=Third slide&bg=20232a"
-//             alt="Third slide"
-//           />
-  
-//           <Carousel.Caption>
-//             <h3>Third slide label</h3>
-//             <p>
-//               Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-//             </p>
-//           </Carousel.Caption>
-//         </Carousel.Item>
-//       </Carousel>
-//       </div>
-//     );
-
-// }
-
-

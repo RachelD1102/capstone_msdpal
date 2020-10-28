@@ -8,9 +8,11 @@ export default function AdminMainpage() {
   const [password, setPassword] = useState("");
   const [uID, setUid] = useState("");
   const [responseCode, setResponseCode] = useState("");
+  const [errorData, setErrordata] = useState("");
   const [isCode, setCode] = useState(false);
   const [isNews, setNews] = useState(false);
   const [isManage, setManage] = useState(false);
+  //const [isBack, setGoback] = useState(false);
 
   const onCodeSection = () => {
     setCode(true);
@@ -37,6 +39,12 @@ export default function AdminMainpage() {
       })
       .catch(function (error) {
         console.log(error.response.data);
+        if(error.response.status === 401){
+          setErrordata("The password is wrong!");
+        }
+        if(error.response.status === 400){
+          setErrordata("Uid is in use!");
+        }
       });
   };
 
@@ -53,6 +61,9 @@ export default function AdminMainpage() {
       })
       .catch(function (error) {
         console.log(error.response.data);
+        if(error.response.status === 401){
+          setErrordata("The password is wrong!");
+        }
       });
   };
 
@@ -102,7 +113,15 @@ export default function AdminMainpage() {
             >
               Check Invitation Code
             </button>
+            {/* <button
+              onClick={onCheckCode}
+              className="form-back-btn"
+              type="button"
+            >
+              Main Page
+            </button> */}
             <h2 className="code-display">{responseCode}</h2>
+            <h2 className="error-display">{errorData}</h2>
           </form>
         </div>
       </div>

@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext} from "react";
 import axios from "axios";
 import "../SigninForm.css";
 import { Redirect } from "react-router-dom";
 import Navbar from "../navBar";
 
 export default function AdminMainPage() {
+  
   const [password, setPassword] = useState("");
   const [newsTitle, setNewstitle] = useState("");
   const [content, setContent] = useState("");
@@ -12,6 +13,7 @@ export default function AdminMainPage() {
   const [category, setCategory] = useState("");
   const [isBack, setGoback] = useState(false);
   const [isSuccess, setSuccess] = useState(false);
+  const [errorData, setErrordata] = useState("");
 
   const onPostNews = async (event) => {
     event.preventDefault();
@@ -26,9 +28,16 @@ export default function AdminMainPage() {
       .then(function (response) {
         console.log(response);
         setSuccess(true);
+        // window.location.href = "/";
       })
       .catch(function (error) {
         console.log(error.response.data);
+        if(error.response.status == 400) {
+          setErrordata("Title, contents and category are required!")
+        }
+        if(error.response.status == 401) {
+          setErrordata("Password is wrong!")
+        }
       });
   };
 
@@ -55,7 +64,7 @@ export default function AdminMainPage() {
     </>
   );
   
-  if(isBack) return <Redirect to="/admin-mainpage" />;
+  if(isBack) return window.location.href = "/admin-mainpage";
   return (
     <>
     <Navbar />
@@ -116,6 +125,7 @@ export default function AdminMainPage() {
             >
               Submit the News
             </button>
+            <h2 className="error-display">{errorData}</h2>
             {/* <button
              className="form-back-btn"
              type="button"

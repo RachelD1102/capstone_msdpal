@@ -1,11 +1,17 @@
-.carousel.indacators {
-    color: blue;
+.carousel-container {
+    margin-top: 2%;
+    margin-bottom: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 1rem;
 }
 
-.carousel-control-next {
-    color: blue;
+.carousel-item {
+    height: 800px;
+    
 }
 
-#Carousel {
-    margin-top: 200px;
+.carousel-image{
+    width: 1900px;
+    height: 1200px;
 }

@@ -38,8 +38,8 @@ export default function SignUp() {
       .catch(function (error) {
         console.log(error.response.data);
       });
-
   };
+  
   if(isVerified) return <Redirect to="/user-mainpage" />
   return (
     <>

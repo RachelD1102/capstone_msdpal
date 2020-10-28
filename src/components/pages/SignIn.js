@@ -5,8 +5,10 @@ import {Redirect} from "react-router-dom";
 import Navbar from '../navBar'
 
 export default function SignIn() {
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorData, setErrordata] = useState("");
   const [isSignin, setSignin] = useState(false);
 
   const onSubmit = async (event) => {
@@ -25,6 +27,9 @@ export default function SignIn() {
       })
       .catch(function (error) {
         console.log(error.response.data);
+        if(error.response.status === 400){
+          setErrordata("You need to sign up first!")
+        }
       });
     
   };
@@ -72,6 +77,7 @@ export default function SignIn() {
             <span className="form-input-forgetpw">
               Forget your password? Click <a href="#">here</a>
             </span>
+            <h2 className="error-display">{errorData}</h2>
           </form>
         </div>
       </div>

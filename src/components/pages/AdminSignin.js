@@ -5,8 +5,14 @@ import { Redirect } from "react-router-dom";
 import Navbar from "../navBar";
 
 export default function AdminSignIn() {
+
   const [password, setPassword] = useState("");
   const [isSubmit, setSubmit] = useState(false);
+  const [errorData, setErrordata] = useState("");
+
+  // const store = {
+  //   password: { get: password, set: setPassword }
+  // };
 
   const onSignin = async (event) => {
     event.preventDefault();
@@ -20,6 +26,7 @@ export default function AdminSignIn() {
       })
       .catch(function (error) {
         console.log(error.response.data);
+        setErrordata("Password is wrong!");
       });
   };
 
@@ -52,6 +59,7 @@ export default function AdminSignIn() {
               type="submit">
               Sign in
             </button>
+            <h2 className="error-display">{errorData}</h2>
             </form>
           </div>
         </div>

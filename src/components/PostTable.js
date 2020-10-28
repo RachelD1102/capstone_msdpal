@@ -34,7 +34,6 @@ const PostTable = () => {
     //   };
 
     const removeData = (id) => {
-
         axios.delete(`${URL}/${id}`).then(res => {
             const del = user.filter(user => id !== user.id)
             setUser(del)
