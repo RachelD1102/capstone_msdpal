@@ -1,56 +1,65 @@
-export default function validateInfo(values) {
+export default function validateInfo(user) {
     let errors = {};
   
-    if (!values.username.trim()) {
+    if (!user.username.trim()) {
       errors.username = 'Username required';
-    }else if (!/^[A-Za-z]+/.test(values.name.trim())) {
+    }else if (!/^[A-Za-z]+/.test(user.username.trim())) {
       errors.username = 'Enter a valid name with only letters';
-    }else if(!values.username.length < 3 || !values.username.length > 10){
+    }else if(user.username.length < 3 || user.username.length > 10){
       errors.username = 'Username must be between 3 and 10 characters';
     }
 
-    if(!values.firstname.trim()) {
-      errors.firstname = 'First name required'
-    } else if (!/^[A-Za-z]+/.test(values.firstname.trim())) {
-      errors.firstname = 'Enter a valid name';
+    if(!user.firstName.trim()) {
+      errors.firstName = 'First name required'
+    } else if (!/^[A-Za-z]+/.test(user.firstName.trim())) {
+      errors.firstName = 'Enter a valid name';
     }
 
-    if(!values.lastname.trim()) {
-      errors.lastname = 'Last name required'
-    } else if (!/^[A-Za-z]+/.test(values.lastname.trim())) {
-      errors.lastname = 'Enter a valid name';
+    if(!user.lastName.trim()) {
+      errors.lastName = 'Last name required'
+    } else if (!/^[A-Za-z]+/.test(user.lastName.trim())) {
+      errors.lastName = 'Enter a valid name';
     }
 
-    if(!values.uNID.trim()) {
-      errors.uNID = 'uNID required'
-    }else if (values.uNID.length < 8) {
-      errors.uNID = 'uNID should be 8 characters';
+    if(!user.uid.trim()) {
+      errors.uid = 'uNID required'
+    }else if (user.uid.length < 8) {
+      errors.uid = 'uNID should be 8 characters';
+    }
+    
+    let number;
+    if(!user.gradYear.trim()){
+      errors.gradYear = 'Grad Year is required'
+    }else if (user.gradYear.length < 4) {
+      errors.gradYear = 'Grad year is invalid';
+    }else if(number = parseInt(user.gradYear) < 2016) {
+      errors.gradYear = 'Grad year is invalid';
     }
 
-    if(!values.gradyear.trim()){
-      errors.lastname = 'Grad Year is required'
-    }else if (values.gradyear.length < 4) {
-      errors.gradyear = 'Grad year is invalid';
-    }
-
-    if (!values.email) {
+    if (!user.email) {
       errors.email = 'Email required';
-    } else if (!/\S+@\S+\.\S+/.test(values.email)) {
+    } else if (!/\S+@\S+\.\S+/.test(user.email)) {
       errors.email = 'Email address is invalid';
     }
-    if (!values.password) {
+    if (!user.password) {
       errors.password = 'Password is required';
-    } else if (values.password.length < 6) {
+    } else if (user.password.length < 6) {
       errors.password = 'Password needs to be 6 characters or more';
     }
   
-    if (!values.password2) {
+    if (!user.password2) {
       errors.password2 = 'Password is required';
-    } else if (values.password2 !== values.password) {
+    } else if (user.password2 !== user.password) {
       errors.password2 = 'Passwords do not match';
     }
+
+    if (!user.code.trim()) {
+      errors.code = 'Invitation Code is required';
+    } 
+    
     return errors;
   }
+
 
   // function yearValidation(year) {
   //   var text = /^[0-9]+$/;

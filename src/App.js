@@ -2,7 +2,6 @@ import React from "react";
 import "./App.css";
 import LandingPage from "./components/pages/LandingPage";
 import SignIn from "./components/pages/SignIn";
-import SignUp from "./components/pages/SignUp";
 import ContactUs from "./components/pages/ContactUs";
 import AboutUs from "./components/pages/AboutUs";
 import AdminSignin from "./components/pages/AdminSignin";
@@ -15,6 +14,7 @@ import MyProfile from "./components/pages/MyProfile";
 import CreatePost from "./components/pages/CreatePost";
 import MyPosts from "./components/pages/MyPosts";
 import GetAllUser from "./components/pages/GetAllUser";
+import SignUp from "./components/pages/SignUp";
 
 function App() {
   return (

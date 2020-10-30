@@ -35,20 +35,24 @@ export default function MyProfile() {
         //console.log(response.data.username);
         const currentuser = response.data;
         console.log(currentuser);
+        //console.log(currentuser.id);
         setUser(currentuser);
+        //console.log(user.id);
       })
       .catch(function (error) {
         console.log(error);
       });
   }, []);
 
+  //console.log(user.id);
+  //console.log(user);
 
   //TODO: implement the edit function
   const onSave = async (event) => {
     event.preventDefault();
-    await axios.put('/api/users/update/{user.id}', {
+    await axios.put(`/api/users/update/${user.id}`, {
         user,
-        password:password,
+        password:password
     })
       .then(function (response) {
         // if(response.status === 201) {

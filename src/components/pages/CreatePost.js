@@ -1,15 +1,16 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import UserNavbar from "../UserNavbar";
 import "./CreatePost.css";
 import axios from "axios";
 
-axios.defaults.withCredentials = true
+axios.defaults.withCredentials = true;
 
 export default function CreatePost() {
   const [postTitle, setPostTitle] = useState("");
   const [content, setContent] = useState("");
   const [url, setUrl] = useState("");
   const [category, setCategory] = useState("");
+  const [errorData, setErrerdata] = useState("");
   const [isSuccess, setSuccess] = useState(false);
 
   const onCreatePost = async (event) => {
@@ -27,6 +28,9 @@ export default function CreatePost() {
       })
       .catch(function (error) {
         console.log(error.response.data);
+        if(error.response.status === 400){
+          setErrerdata("Please enter the post title and post contents!")
+        }
       });
   };
 
@@ -38,7 +42,9 @@ export default function CreatePost() {
         </div>
         <div className="create-post-container">
           <form className="create-post-form">
-            <h1 className="title">Your post has been submitted successfully!</h1>
+            <h1 className="title">
+              Your post has been submitted successfully!
+            </h1>
           </form>
         </div>
       </>
@@ -84,21 +90,36 @@ export default function CreatePost() {
           </div>
           <div className="post-container">
             <label className="form-label">Category</label>
-            <input
+            <div>
+            <select
+            className="select-option"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            >
+              <option value="Intership">Internship</option>
+              <option value="Recruitment">Recruitment</option>
+              <option value="Daily Life">Daily Life</option>
+              <option value="Technical Resources">Technical Resources</option>
+              <option value="MSD Activity">MSD Activity</option>
+            </select>
+            </div>
+            {/* <input
               className="post-title"
               type="text"
               placeholder="Enter the category"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-            />
+            /> */}
             {/* {errors.username && <p>{errors.username}</p>} */}
           </div>
           <button
-          onClick={onCreatePost}
-          className="post-submit-btn" 
-          type="submit">
+            onClick={onCreatePost}
+            className="post-submit-btn"
+            type="submit"
+          >
             Submit
           </button>
+          <h2  className="error-display">{errorData}</h2>
         </form>
       </div>
     </>

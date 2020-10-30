@@ -3,19 +3,79 @@ import axios from 'axios'
 import "./PostTable.css"
 
 
-const URL = '/api/query/posts/'
-
 const PostTable = () => {
+    const [authorId, setAuthorId] = useState("");
     const [user, setUser] = useState([])
 
+    // useEffect(() => {
+    //     axios
+    //       .get("/api/query/news/latest/3", {})
+    //       .then(function (response) {
+    //         console.log(response);
+    //         const fetchNews = response.data[0];
+    //         const fetchNews2 = response.data[1];
+    //         const fetchNews3 = response.data[2];
+    //         console.log(fetchNews);
+    //         setNews1(fetchNews);
+    //         setNews2(fetchNews2);
+    //         setNews3(fetchNews3);
+    //       })
+    //       .catch(function (error) {
+    //         console.log(error);
+    //       });
+    //   }, []);
     useEffect(() => {
-        getData()
-    }, [])
+        async function getUserData() {
+            await axios.get("/api/users/me",{})
+            .then(function (response) {
+                console.log(response);
+                const author_Id = response.data.id;
+                setAuthorId(author_Id);
+              })
+              .catch((err) => console.log(err));
+          }
+    
+          async function getUserPosts(){
+            await axios.get(`/api/query/posts/authorId/${authorId}`,{})
+              .then(function (res) {
+                console.log(res);
+                const user_post = res.data;
+                //const author_Id = response.data[0].id;
+                setUser(user_post);
+              })
+              .catch((err) => console.log(err));
+          }
 
-    const getData = async () => {
-        const response = await axios.get(URL)
-        setUser(response.data)
-    }
+          getUserData();
+          getUserPosts();
+      }, []);
+
+    // useEffect(() => {
+    //     axios
+    //       .get("/api/users/me", {})
+    //       .then(function (response) {
+    //         console.log(response);
+    //         const author_Id = response.data[0].id;
+    //         setAuthorId(author_Id);
+    //       })
+    //       .then(function (getData) {
+    //         console.log(getData);
+    //       });
+    //   }, []);
+
+    // useEffect(() => {
+    //     getData()
+    // }, [])
+
+    // const getData = async () => {
+    //     const response = await axios.get('/api/query/posts/');
+    //     console.log(response.data);
+    //     console.log(response.data[0].authorId);
+    //     setAuthorId(response.data[0].authorId);
+    //     // setUser(response.data)
+    //     const res = await axios.get('/api/query/posts/authorId/{authorId}')
+    //     setUser(res.data);
+    // }
 
     // const onDeleteData = async (event) => {
     //     event.preventDefault();

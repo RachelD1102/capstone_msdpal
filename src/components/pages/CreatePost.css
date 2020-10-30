@@ -4,7 +4,7 @@
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
   position: relative;
   border-radius: 10px;
-  height: 600px;
+  height: 700px;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
@@ -81,4 +81,16 @@
   height: 50px;
   width: 100%;
   border: none;
+}
+
+.select-option {
+  height: 50px;
+  width: 30%;
+  color: rgb(108, 110, 111);
+}
+
+.error-display {
+  color: rgb(238, 68, 68);
+  padding: 1rem;
+  font-size: 1rem;
 }
