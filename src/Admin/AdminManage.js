@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import 'react-table-6/react-table.css'
-import Navbar from '../navBar'
-import NewsTable from '../NewsTable'
+import Navbar from '../LandingPage/navBar'
+import NewsTable from './NewsTable'
 
 
 

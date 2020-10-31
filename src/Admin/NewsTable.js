@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./PostTable.css";
+import "../Users/PostTable.css";
 
 const URL = "/api/query/news/";
 const Delete_URL = "/api/news";

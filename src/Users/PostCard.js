@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import "./PostCard.css";
 
-export default function PostCard() {
+
+export default function PostCard(props) {
+
   return (
     <Card className="post-card">
       <Card.Header>
         <Link>
-        Username
+        {props.username}
         </Link>
       </Card.Header>
       <Card.Body>

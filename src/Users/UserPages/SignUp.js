@@ -2,7 +2,7 @@ import React from "react";
 import validate from "../validateInfo";
 import useForm from "../useForm";
 import "../SigninForm.css";
-import Navbar from "../navBar";
+import Navbar from "../../LandingPage/navBar";
 import { Redirect } from "react-router-dom";
 
 const SignUp = ({ submitForm }) => {

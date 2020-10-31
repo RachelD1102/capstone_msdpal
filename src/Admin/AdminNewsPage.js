@@ -1,8 +1,8 @@
 import React, { useState, useContext} from "react";
 import axios from "axios";
-import "../SigninForm.css";
+import "../Users/SigninForm.css";
 import { Redirect } from "react-router-dom";
-import Navbar from "../navBar";
+import Navbar from "../LandingPage/navBar";
 
 export default function AdminMainPage() {
   

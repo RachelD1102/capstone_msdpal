@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './navBar.css';
+import '../LandingPage/navBar.css';
 
 export default function UserNavbar() {
     const [click, setClick] = useState(false);

@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import "../SigninForm.css";
 import {Redirect} from "react-router-dom";
-import Navbar from '../navBar'
+import Navbar from '../../LandingPage/navBar'
 
 export default function SignIn() {
-  
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorData, setErrordata] = useState("");
@@ -28,7 +28,7 @@ export default function SignIn() {
       .catch(function (error) {
         console.log(error.response.data);
         if(error.response.status === 400){
-          setErrordata("You need to sign up first!")
+          setErrordata("Your email or password is invalid!")
         }
       });
     

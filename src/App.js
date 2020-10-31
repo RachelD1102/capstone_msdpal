@@ -1,20 +1,20 @@
 import React from "react";
 import "./App.css";
-import LandingPage from "./components/pages/LandingPage";
-import SignIn from "./components/pages/SignIn";
-import ContactUs from "./components/pages/ContactUs";
-import AboutUs from "./components/pages/AboutUs";
-import AdminSignin from "./components/pages/AdminSignin";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import UserMainPage from "./components/pages/UserMainPage";
-import AdminMainpage from "./components/pages/AdminMainpage";
-import AdminNewsPage from "./components/pages/AdminNewsPage";
-import AdminManage from "./components/pages/AdminManage";
-import MyProfile from "./components/pages/MyProfile";
-import CreatePost from "./components/pages/CreatePost";
-import MyPosts from "./components/pages/MyPosts";
-import GetAllUser from "./components/pages/GetAllUser";
-import SignUp from "./components/pages/SignUp";
+import LandingPage from "./LandingPage/LandingPage";
+import SignIn from "./Users/UserPages/SignIn";
+import SignUp from "./Users/UserPages/SignUp";
+import ContactUs from "./ContactUsPage/ContactUs";
+import AboutUs from "./AboutUsPage/AboutUs";
+import AdminSignin from "./Admin/AdminSignin";
+import UserMainPage from "./Users/UserPages/UserMainPage";
+import AdminMainpage from "./Admin/AdminMainpage";
+import AdminNewsPage from "./Admin/AdminNewsPage";
+import AdminManage from "./Admin/AdminManage";
+import MyProfile from "./Users/UserPages/MyProfile";
+import CreatePost from "./Users/UserPages/CreatePost";
+import MyPosts from "./Users/UserPages/MyPosts";
+import GetAllUser from "./Users/UserPages/GetAllUser";
 
 function App() {
   return (
