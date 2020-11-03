@@ -3,11 +3,9 @@ import axios from "axios";
 import "../Users/PostTable.css";
 
 const URL = "/api/query/news/";
-const Delete_URL = "/api/news";
 
 const NewsTable = () => {
   const [news, setNews] = useState([]);
-  const [password, setPassword] = useState("bigbrotheriswatchingyou");
 
   useEffect(() => {
     getData();
@@ -35,9 +33,7 @@ const NewsTable = () => {
   //   };
 
   const removeData = (id) => {
-    axios.delete(`/api/news/${id}`, {
-        adminPassword: password,
-    }).
+    axios.delete(`/api/news/${id}`, {}).
     then(function (response){
       const del = news.filter((news) => id !== news.id);
       setNews(del);
@@ -76,13 +72,13 @@ const NewsTable = () => {
             <td>{img}</td>
             <td>{date}</td>
             <td className="opration">
-              <input
+              {/* <input
                 className="form-input"
                 type="password"
                 // name="email"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-              />
+              /> */}
               <button className="button" onClick={() => removeData(id)}>
                 Delete
               </button>

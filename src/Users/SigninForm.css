@@ -107,7 +107,7 @@
 }
 
 .form-label {
-  /* display: inline-block; */
+  display: inline-block;
   font-size: 1rem;
   margin-bottom: 2px;
   color: #fff;
@@ -165,15 +165,25 @@
 }
 
 .form-back-btn {
-  width: 80%;
-  height: 50px;
-  margin-top: 13px;
+  width: 60%;
+  height: 40px;
+  margin-top: 10px;
   border-radius: 2px;
-  background: linear-gradient(
-    90deg,
-    rgb(164, 173, 243) 0%,
-    rgb(98, 125, 231) 100%
-  );
+  background: #618dd8;
+  outline: none;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  padding: 6px;
+}
+
+.table-back-btn {
+  width: 200px;
+  height: 40px;
+  margin-top: 10px;
+  margin-left: 45%;
+  border-radius: 2px;
+  background: #618dd8;
   outline: none;
   border: none;
   color: #fff;

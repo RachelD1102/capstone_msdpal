@@ -5,6 +5,9 @@ import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
 
 export default function ControlledCarousel() {
+  // return (
+  //   <h1>hello!</h1>
+  // );
   const [index, setIndex] = useState(0);
   //id, title, contents, category, *img, date
   const [news1, setNews1] = useState({

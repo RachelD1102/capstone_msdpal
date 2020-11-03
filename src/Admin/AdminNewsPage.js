@@ -1,17 +1,15 @@
-import React, { useState, useContext} from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import "../Users/SigninForm.css";
-import { Redirect } from "react-router-dom";
 import Navbar from "../LandingPage/navBar";
+import BackBtn from "./BackBtn";
 
 export default function AdminMainPage() {
   
-  const [password, setPassword] = useState("");
   const [newsTitle, setNewstitle] = useState("");
   const [content, setContent] = useState("");
   const [url, setUrl] = useState("");
   const [category, setCategory] = useState("");
-  const [isBack, setGoback] = useState(false);
   const [isSuccess, setSuccess] = useState(false);
   const [errorData, setErrordata] = useState("");
 
@@ -19,7 +17,6 @@ export default function AdminMainPage() {
     event.preventDefault();
     await axios
       .post("/api/news", {
-        adminPassword: password,
         title:newsTitle,
         contents: content,
         category: category,
@@ -41,9 +38,6 @@ export default function AdminMainPage() {
       });
   };
 
-  const onGoback = () => {
-    setGoback(true);
-  };
 
   if(isSuccess) return (
     <>
@@ -57,6 +51,7 @@ export default function AdminMainPage() {
         <div className="form-content-right">
           <form className="form" noValidate>
             <h1>Your news has been submitted successfully!</h1>
+            <BackBtn />
           </form>
         </div>
       </div>
@@ -64,7 +59,6 @@ export default function AdminMainPage() {
     </>
   );
   
-  if(isBack) return window.location.href = "/admin-mainpage";
   return (
     <>
     <Navbar />
@@ -77,14 +71,6 @@ export default function AdminMainPage() {
           <form className="form" noValidate>
             <h1>Welcome Back!</h1>
             <div className="form-inputs">
-              <label className="form-label">Password</label>
-              <input
-                className="form-input"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter admin password"
-              />
               <label className="form-label">News Title</label>
               <input
                 className="form-input"
@@ -125,14 +111,8 @@ export default function AdminMainPage() {
             >
               Submit the News
             </button>
+            <BackBtn />
             <h2 className="error-display">{errorData}</h2>
-            {/* <button
-             className="form-back-btn"
-             type="button"
-             onClink={onGoback}
-            >
-             Main Page
-            </button> */}
           </form>
         </div>
       </div>

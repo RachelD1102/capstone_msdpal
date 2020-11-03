@@ -10,10 +10,6 @@ export default function AdminSignIn() {
   const [isSubmit, setSubmit] = useState(false);
   const [errorData, setErrordata] = useState("");
 
-  // const store = {
-  //   password: { get: password, set: setPassword }
-  // };
-
   const onSignin = async (event) => {
     event.preventDefault();
     await axios
@@ -36,7 +32,6 @@ export default function AdminSignIn() {
       <Navbar />
       <div className="sign-up-page">
         <div className="form-container">
-          <span className="close-btn">×</span>
           <div className="form-content-left">
             <img className="form-img" src="img/img2.jpg" alt="theU" />
           </div>

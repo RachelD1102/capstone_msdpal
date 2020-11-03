@@ -1,0 +1,62 @@
+.btn-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.btn-1 {
+  background-color: rgb(154, 161, 212);
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  border-radius: 2px;
+  outline: none;
+  border: none;
+  height: 40px;
+  width: 100px;
+}
+
+.btn-2 {
+  background-color: rgb(223, 191, 157);
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 2px;
+  outline: none;
+  border: none;
+  height: 40px;
+  width: 100px;
+}
+
+.btn-3 {
+  background-color: rgb(238, 167, 198);
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 2px;
+  outline: none;
+  border: none;
+  height: 40px;
+  width: 150px;
+}
+
+.btn-4 {
+  background-color: rgb(147, 175, 223);
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 2px;
+  outline: none;
+  border: none;
+  height: 40px;
+  width: 100px;
+}
+
+.btn-5 {
+  background-color: rgb(194, 222, 162);
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 2px;
+  outline: none;
+  border: none;
+  height: 40px;
+  width: 100px;
+}

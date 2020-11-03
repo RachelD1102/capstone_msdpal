@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
+import SubmitComment from "./SubmitComment";
+import CommentPart from "./CommentPart";
 import "./PostCard.css";
 
 
@@ -20,17 +22,10 @@ export default function PostCard(props) {
           With supporting text below as a natural lead-in to additional content.
         </Card.Text>
         <div>
-        <textarea
-        className="cmt-text-box"
-        type="text"
-        placeholder="Leave your comment"
-        />
-        <button
-         type="submit"
-         className="cmt-btn" 
-        >
-          Comment
-        </button>
+        <SubmitComment />
+        </div>
+        <div>
+        <CommentPart />
         </div>
         
 
