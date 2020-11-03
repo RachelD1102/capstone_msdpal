@@ -72,13 +72,6 @@ const NewsTable = () => {
             <td>{img}</td>
             <td>{date}</td>
             <td className="opration">
-              {/* <input
-                className="form-input"
-                type="password"
-                // name="email"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              /> */}
               <button className="button" onClick={() => removeData(id)}>
                 Delete
               </button>

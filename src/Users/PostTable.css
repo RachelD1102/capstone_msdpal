@@ -67,3 +67,24 @@
   font-size: 18px;
 }
 
+.get-posts-btn {
+  width: 200px;
+  height: 40px;
+  margin-top: 10px;
+  margin-left: 45%;
+  border-radius: 2px;
+  background: #618dd8;
+  outline: none;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  padding: 6px;
+}
+ .h2-alert{
+   font-size: 1rem;
+   color: #4d4d4d;
+   margin-left: 45.5%;
+   margin-top: 10px;
+
+ }
+
