@@ -53,16 +53,7 @@ const useForm = (callback, validate) => {
       });
 
       setErrors(validate(user));
-      //setVerified(true);
   };
-    //need to modify
-
-
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  //   setErrors(validate(signupvalues));
-  //   setIsSubmitting(true);
-  // };
 
   useEffect(
     () => {

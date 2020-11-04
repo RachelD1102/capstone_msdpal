@@ -1,11 +1,10 @@
 .container {
-    position: absolute;
-    left: 40%;
-    top: 30%;
-    height: 200px;
-    margin-top: -100px; /* half of you height */
-    width: 400px;
-    margin-left: -200px; /* half of you width */
+  height: 100%;
+  width: 100%;
+}
+
+body {
+    background-color: #e0f5f5;
 }
 
 .aboutus-card{
@@ -28,4 +27,8 @@
       rgb(196, 225, 250) 0%,
       rgb(114, 179, 236) 100%
     );
+}
+
+.form-container {
+    background-color: aqua;
 }

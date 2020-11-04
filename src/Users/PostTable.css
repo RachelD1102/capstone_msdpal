@@ -13,7 +13,7 @@
 
 #News td,
 #News th {
-  border: 1px solid #ddd;
+  border: 1px solid rgb(23, 36, 53);
   padding: 10px;
 }
 
@@ -45,7 +45,7 @@
 }
 
 .button:active {
-  border: 1px solid blue;
+  border: 1px solid rgb(76, 114, 179);
 }
 
 .ReactTable {

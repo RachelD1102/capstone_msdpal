@@ -1,12 +1,18 @@
-import React from 'react';
-import ControlledCarousel from './ControlledCarousel';
+import React from 'react'
+import ControlledCarousel from './ControlledCarousel'
 import Navbar from './navBar'
+import './LandingPage.css'
 
 function LandingPage() {
   return (
-    <div>
+    <div className="div-container">
     <Navbar />
-    <ControlledCarousel />
+      <div>
+      <ControlledCarousel />
+      </div>
+      <div className="div-container">
+      
+      </div>
     </div>
   );
 }

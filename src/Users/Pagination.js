@@ -1,9 +1,11 @@
-import React from "react";
-import "bootstrap/dist/css/bootstrap.css";
-import Pagination from 'react-bootstrap/Pagination';
+import React from "react"
+import "bootstrap/dist/css/bootstrap.css"
+import Pagination from 'react-bootstrap/Pagination'
+import './Pagination.css'
 
 
 export default function MainPagePagination() {
+
   let active = 1;
   let items = [];
   for (let number = 1; number <= 10; number++) {

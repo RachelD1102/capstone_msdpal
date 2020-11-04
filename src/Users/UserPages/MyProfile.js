@@ -3,7 +3,6 @@ import UserNavbar from "../UserNavbar";
 import "../SigninForm.css";
 import axios from "axios";
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
-import Button from 'react-bootstrap/Button'
 
 axios.defaults.withCredentials = true;
 
@@ -11,7 +10,8 @@ export default function MyProfile() {
   //id, email, username, firstName, lastName, code, gradYear, *placement, *intro, *avatar, uid
   const [disabled, setDisabled] = useState(true);
   const [isSubmited, setSubmited] = useState(false);
-  const [password, setPassword] = useState("");
+  const [userId, setUserid] = useState("");
+  // const [password, setPassword] = useState("");
   const [user, setUser] = useState({
     id:"",
     username: "",
@@ -23,7 +23,7 @@ export default function MyProfile() {
     placement: "",
     intro: "",
     code: "",
-    //password:"",
+    password:"",
   });
 
   useEffect(() => {
@@ -32,32 +32,36 @@ export default function MyProfile() {
       .get("/api/users/me", {})
       .then(function (response) {
         console.log(response);
-        //console.log(response.data.username);
         const currentuser = response.data;
         console.log(currentuser);
-        //console.log(currentuser.id);
+
         setUser(currentuser);
-        //console.log(user.id);
+        setUserid(currentuser.id);
+        console.log(currentuser.id);
+        console.log(currentuser);
       })
       .catch(function (error) {
         console.log(error);
       });
   }, []);
 
-  //console.log(user.id);
-  //console.log(user);
 
   //TODO: implement the edit function
   const onSave = async (event) => {
     event.preventDefault();
-    await axios.put(`/api/users/update/${user.id}`, {
-        user,
-        password:password
+    await axios.put(`/api/users/update/${userId}`, {
+      email: user.email,
+      password: user.password,
+      username: user.username,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      code: user.code,
+      gradYear: user.gradYear,
+      uid: user.uid,
+      intro: user.intro,
+      placement: user.placement
     })
       .then(function (response) {
-        // if(response.status === 201) {
-        //   setVerified(true);
-        // }
         console.log(response);
       })
       .catch(function (error) {
@@ -69,29 +73,10 @@ export default function MyProfile() {
     setDisabled(false);
   };
 
-  // const onSave = () => {
-  //   setSubmited(true);
-  // };
-
-  // const onCurrentUser = async (event) => {
-  //   event.preventDefault();
-  //   await axios
-  //     .get(`/api/users/getme`, {})
-  //     .then(function (response) {
-  //       console.log(response);
-  //       const currentuser = JSON.parse(response.data);
-  //       setUser(currentuser);
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error.response.data);
-  //     });
-  // };
-
   return (
     <>
       <UserNavbar />
       <div className="profile-container">
-        {/* <p>user: {user.code}</p> */}
         <div className="form-profile-content-left">
           <form className="form" noValidate>
             <h1>My Profile</h1>
@@ -101,7 +86,6 @@ export default function MyProfile() {
                 disabled={disabled}
                 className="form-input"
                 type="text"
-                //name="username"
                 placeholder="Enter your username"
                 value={user.username}
                 onChange={(e) => setUser({ username: e.target.value })}
@@ -178,11 +162,11 @@ export default function MyProfile() {
               <input
                 disabled={disabled}
                 className="form-input"
-                type="password"
+                type="text"
                 //name="password"
                 placeholder="Enter your password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={user.password}
+                onChange={(e) => setUser({ password: e.target.value })}
               />
               {/* {errors.password && <p>{errors.password}</p>} */}
             </div>
@@ -228,22 +212,13 @@ export default function MyProfile() {
             </div>
            
             <ButtonGroup className="btn-group">
-              <Button onClick={onEdit} className="edit-btn" type="button">
+              <button onClick={onEdit} className="edit-btn" type="button">
                 Edit
-              </Button>
-              <Button onChange={onSave} className="save-btn" type="submit">
+              </button>
+              <button onClick={onSave} className="save-btn" type="submit">
                 Save
-              </Button>
+              </button>
             </ButtonGroup>
-            {/* <button onClick={onEdit} className="edit-btn" type="button">
-              Edit
-            </button>
-            <button onChange={onSave} className="edit-btn" type="submit">
-              Save
-            </button> */}
-            {/* <span className="form-input-login">
-          Already have an account? Login <a href="#">here</a>
-        </span> */}
           </form>
         </div>
         <div className="form-content-right">
