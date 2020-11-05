@@ -29,7 +29,7 @@ export default function CreatePost() {
       .catch(function (error) {
         console.log(error.response.data);
         if(error.response.status === 400){
-          setErrerdata("Please enter the post title and post contents!")
+          setErrerdata("Post title, contents and category are required!")
         }
       });
   };
@@ -96,11 +96,12 @@ export default function CreatePost() {
             value={category}
             onChange={(e) => setCategory(e.target.value)}
             >
-              <option value="Intership">Internship</option>
+              <option>Choose a categroy</option>
+              <option value="Internship">Internship</option>
               <option value="Recruitment">Recruitment</option>
-              <option value="Daily Life">Daily Life</option>
-              <option value="Technical Resources">Technical Resources</option>
-              <option value="MSD Activity">MSD Activity</option>
+              <option value="DailyLife">Daily Life</option>
+              <option value="TechnicalResources">Technical Resources</option>
+              <option value="MSDActivity">MSD Activity</option>
             </select>
             </div>
             {/* <input

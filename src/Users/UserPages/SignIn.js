@@ -74,9 +74,9 @@ export default function SignIn() {
             <button className="form-input-btn" type="submit">
               Sign in
             </button>
-            <span className="form-input-forgetpw">
+            {/* <span className="form-input-forgetpw">
               Forget your password? Click <a href="#">here</a>
-            </span>
+            </span> */}
             <h2 className="error-display">{errorData}</h2>
           </form>
         </div>

@@ -26,6 +26,14 @@ export default function MyProfile() {
     password:"",
   });
 
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setUser({
+      ...user,
+      [name]: value
+    });
+  };
+
   useEffect(() => {
     //const onCurrentUser = async () => {
     axios
@@ -49,6 +57,8 @@ export default function MyProfile() {
   //TODO: implement the edit function
   const onSave = async (event) => {
     event.preventDefault();
+    console.log(user);//
+    console.log(user.email);
     await axios.put(`/api/users/update/${userId}`, {
       email: user.email,
       password: user.password,
@@ -85,10 +95,11 @@ export default function MyProfile() {
               <input
                 disabled={disabled}
                 className="form-input"
+                name="username"
                 type="text"
                 placeholder="Enter your username"
                 value={user.username}
-                onChange={(e) => setUser({ username: e.target.value })}
+                onChange={handleChange}
               />
               {/* {errors.username && <p>{errors.username}</p>} */}
             </div>
@@ -98,10 +109,10 @@ export default function MyProfile() {
                 disabled={disabled}
                 className="form-input"
                 type="text"
-                //name="firstname"
+                name="firstName"
                 placeholder="Enter your first name"
                 value={user.firstName}
-                onChange={(e) => setUser({ firstName: e.target.value })}
+                onChange={handleChange}
               />
               {/* {errors.firstname && <p>{errors.firstname}</p>} */}
             </div>
@@ -111,10 +122,10 @@ export default function MyProfile() {
                 disabled={disabled}
                 className="form-input"
                 type="text"
-                //name="lastname"
+                name="lastName"
                 placeholder="Enter your last name"
                 value={user.lastName}
-                onChange={(e) => setUser({ lastName: e.target.value })}
+                onChange={handleChange}
               />
               {/* {errors.lastname && <p>{errors.lastname}</p>} */}
             </div>
@@ -124,10 +135,10 @@ export default function MyProfile() {
                 disabled={disabled}
                 className="form-input"
                 type="text"
-                //name="uNID"
+                name="uid"
                 placeholder="Enter your uNID"
                 value={user.uid}
-                onChange={(e) => setUser({ uid: e.target.value })}
+                onChange={handleChange}
               />
               {/* {errors.uNID && <p>{errors.uNID}</p>} */}
             </div>
@@ -137,10 +148,10 @@ export default function MyProfile() {
                 disabled={disabled}
                 className="form-input"
                 type="number"
-                //name="gradyear"
+                name="gradYear"
                 placeholder="Enter your grad year"
                 value={user.gradYear}
-                onChange={(e) => setUser({ gradYear: e.target.value })}
+                onChange={handleChange}
               />
               {/* {errors.gradyear && <p>{errors.gradyear}</p>} */}
             </div>
@@ -150,10 +161,10 @@ export default function MyProfile() {
                 disabled={disabled}
                 className="form-input"
                 type="email"
-                //name="email"
+                name="email"
                 placeholder="Enter your email"
                 value={user.email}
-                onChange={(e) => setUser({ email: e.target.value })}
+                onChange={handleChange}
               />
               {/* {errors.email && <p>{errors.email}</p>} */}
             </div>
@@ -163,10 +174,10 @@ export default function MyProfile() {
                 disabled={disabled}
                 className="form-input"
                 type="text"
-                //name="password"
+                name="password"
                 placeholder="Enter your password"
                 value={user.password}
-                onChange={(e) => setUser({ password: e.target.value })}
+                onChange={handleChange}
               />
               {/* {errors.password && <p>{errors.password}</p>} */}
             </div>
@@ -176,10 +187,10 @@ export default function MyProfile() {
                 disabled={disabled}
                 className="form-input"
                 type="text"
-                //name="password"
+                name="placement"
                 placeholder="Enter your placement"
                 value={user.placement}
-                onChange={(e) => setUser({ placement: e.target.value })}
+                onChange={handleChange}
               />
               {/* {errors.password && <p>{errors.password}</p>} */}
             </div>
@@ -189,10 +200,10 @@ export default function MyProfile() {
                 disabled={disabled}
                 className="form-input"
                 type="text"
-                //name="password"
+                name="intro"
                 placeholder="Enter your introduction"
                 value={user.intro}
-                onChange={(e) => setUser({ intro: e.target.value })}
+                onChange={handleChange}
               />
               {/* {errors.password && <p>{errors.password}</p>} */}
             </div>
@@ -203,10 +214,10 @@ export default function MyProfile() {
                 disabled={disabled}
                 className="form-input"
                 type="text"
-                //name="invitationcode"
+                name="code"
                 placeholder="Please enter your invitation code"
                 value={user.code}
-                onChange={(e) => setUser({ code: e.target.value })}
+                onChange={handleChange}
               />
               {/* {errors.password2 && <p>{errors.password2}</p>} */}
             </div>

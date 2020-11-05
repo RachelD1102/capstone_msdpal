@@ -62,7 +62,7 @@ const PostTable = () => {
     ];
 
     return headerElement.map((key, index) => {
-      return <th key={index}>{key.toUpperCase()}</th>;
+      return <th key={index}>{key}</th>;
     });
   };
 

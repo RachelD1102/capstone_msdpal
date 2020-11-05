@@ -13,18 +13,18 @@
 
 #News td,
 #News th {
-  border: 1px solid rgb(23, 36, 53);
+  border: 1px solid rgb(189, 191, 194);
   padding: 10px;
 }
 
 #News tr:hover {
-  background-color: #ddd;
+  background-color: rgb(247, 244, 244);
 }
 
 #News th {
   padding: 15px;
   text-align: center;
-  background-color: #3f6fb6;
+  background-color: #648dcb;
   color: white;
 }
 
@@ -85,6 +85,5 @@
    color: #4d4d4d;
    margin-left: 45.5%;
    margin-top: 10px;
-
  }
 
