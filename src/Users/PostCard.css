@@ -10,7 +10,7 @@
   outline: none;
   border-radius: 2px;
   height: 50px;
-  width: 80%;
+  width: 60%;
   border: none;
   border-radius: 0.3rem;
 }
@@ -30,4 +30,37 @@
   border: none;
   color: #fff;
   font-size: 1rem;
+}
+
+.card-username{
+  font-size: 1.2rem;
+}
+
+.card-title {
+  font-size: 1.8rem;
+  
+}
+
+.card-contents {
+  font-size: 1.2rem;
+}
+
+.img-part {
+  margin-bottom: 0.2rem;
+}
+
+.post-img {
+  height: 50%;
+  width: 60%;
+}
+
+.cmt-submit-box {
+  margin-top: 1rem;
+}
+
+
+.date-p {
+  color: #595959;
+  font-size: 1rem;
+  justify-self: end;
 }

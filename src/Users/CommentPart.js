@@ -1,18 +1,19 @@
 import React from "react";
+import "./CommentPart.css";
 
 export default function CommentPart(props) {
+  function formatDate(date) {
+    var d = new Date(date);
+    d = d.toLocaleString();
+    return d;
+  }
+
   return (
     <div className="Comment">
-      <div className="UserInfo">
-        <img
-          className="Avatar"
-          //   src={props.author.avatarUrl}
-          //alt={props.author.name}
-        />
-        <div className="UserInfo-name">{props.name}</div>
+      <div className="UserInfo-name">
+        <span className="cmt-author">{props.cmt_author}</span> : <span className="cmt-contents">{props.cmt_contents}</span>
       </div>
-      <div className="Comment-text">{props.text}</div>
-      <div className="Comment-date">{(props.date)}</div>
+      <div className="cmt-date">{formatDate(props.cmt_date)}</div>
     </div>
   );
 }
