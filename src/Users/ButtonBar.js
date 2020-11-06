@@ -1,23 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { ButtonGroup,ButtonToolbar} from "react-bootstrap";
 import "./ButtonBar.css"
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 
 export default function ButtonBar() {
 
-  const onRecruitment = async (event) => {
-    event.preventDefault();
-    await axios
-      .get("/api/query/posts/category/Recruitment", {})
-      .then(function (response) {
-        console.log(response);
-        //Response: [{ id, title, contents, category, *img, author, authorId, authorEmail,date }]
-      })
-      .catch(function (error) {
-        console.log(error.response.data);
-      });
+  const [isRecuritment, setRecruitmemt] = useState(false);
+  const [isIntern, setIntern] = useState(false);
+  const [isDaily, setDaily] = useState(false);
+  const [isTech, setTech] = useState(false);
+  const [isMSD, setMSD] = useState(false);
+
+
+  const onRecruitment = () => {
+    setRecruitmemt(true);
   };
 
   const onInternship = async (event) => {
@@ -26,6 +25,7 @@ export default function ButtonBar() {
       .get("/api/query/posts/category/Internship", {})
       .then(function (response) {
         console.log(response);
+        setIntern(true);
         //Response: [{ id, title, contents, category, *img, author, authorId, authorEmail,date }]
       })
       .catch(function (error) {
@@ -39,6 +39,7 @@ export default function ButtonBar() {
       .get("/api/query/posts/category/TechnicalResources", {})
       .then(function (response) {
         console.log(response);
+        setTech(true);
         //Response: [{ id, title, contents, category, *img, author, authorId, authorEmail,date }]
       })
       .catch(function (error) {
@@ -52,6 +53,7 @@ export default function ButtonBar() {
       .get("/api/query/posts/category/DailyLife", {})
       .then(function (response) {
         console.log(response);
+        setDaily(true);
         //Response: [{ id, title, contents, category, *img, author, authorId, authorEmail,date }]
       })
       .catch(function (error) {
@@ -65,6 +67,7 @@ export default function ButtonBar() {
       .get("/api/query/posts/category/MSDActivity", {})
       .then(function (response) {
         console.log(response);
+        setMSD(true);
         //Response: [{ id, title, contents, category, *img, author, authorId, authorEmail,date }]
       })
       .catch(function (error) {
@@ -72,6 +75,11 @@ export default function ButtonBar() {
       });
   };
 
+  if(isRecuritment) return <Redirect to="user-mainpage-recruitment" />
+  if(isIntern) return <Redirect to="user-mainpage-internship" />
+  if(isDaily) return <Redirect to="user-mainpage-dailylife" />
+  if(isMSD) return <Redirect to="user-mainpage-msdActivity" />
+  if(isTech) return <Redirect to="user-mainpage-technicalresources" />
 
   return (
     <ButtonToolbar aria-label="Toolbar with button groups">
