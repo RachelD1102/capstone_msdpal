@@ -9,6 +9,7 @@ export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorData, setErrordata] = useState("");
+  const [id, setId] = useState("");
   const [isSignin, setSignin] = useState(false);
 
   const onSubmit = async (event) => {
@@ -20,6 +21,7 @@ export default function SignIn() {
       })
       .then(function (response) {
         console.log(response);
+        sessionStorage.setItem("userId", response.data.id);
         console.log(response.data.status);
         if(response.status === 200){
           setSignin(true);

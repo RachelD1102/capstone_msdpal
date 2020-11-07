@@ -31,7 +31,7 @@
 }
 
 .form-profile-content-left {
-  background: linear-gradient(90deg, #79a4d2 0%, #528ac6 100%);
+  background:rgb(237, 194, 126) ;
   /* background-image: url(/img/img-2.jpg); */
   border-radius: 10px 0 0 10px;
   position: relative;
@@ -251,11 +251,7 @@
   height: 40px;
   margin-top: 13px;
   border-radius: 6px;
-  background: linear-gradient(
-    90deg,
-    rgb(244, 206, 113) 0%,
-    rgb(249, 220, 125) 100%
-  );
+  background:rgb(103, 149, 216) ;
   outline: none;
   border: none;
   color: #fff;
@@ -285,7 +281,23 @@
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
   position: relative;
   border-radius: 10px;
-  height: 1000px;
+  height: 1100px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+
+.avatar-img {
+  height: 100px;
+  width: 120px
+}
+
+.form h1 {
+  font-size: 2rem;
+}
+
+.form p {
+  color: aliceblue;
+  font-size: 1rem;
+  margin-top: 1rem;
+  justify-content: center;
 }

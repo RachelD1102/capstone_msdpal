@@ -5,36 +5,39 @@ import "./PostTable.css";
 const PostTable = () => {
   const [posts, setPosts] = useState([]);
   const [alert, setAlert] = useState("");
-  let author_Id;
+  let author_Id = sessionStorage.getItem("userId");
 
   useEffect(() => {
-    async function getUserData() {
+    async function getPosts() {
       await axios
-        .get("/api/users/me", {})
+        .get(`/api/query/posts/authorId/${author_Id}`, {})
         .then(function (response) {
           console.log(response);
-          author_Id = response.data.id;
+          setPosts(response.data);
+          if (response.data.length === 0) {
+            setAlert("You do not have any posts.");
+          }
         })
-        .catch((err) => console.log(err));
+        .catch((error) => console.log(error.response.data));
     }
-    getUserData();
+    getPosts();
   }, []);
 
-  const onGetPosts = async (event) => {
-    event.preventDefault();
-    await axios
-      .get(`/api/query/posts/authorId/${author_Id}`, {})
-      .then(function (response) {
-        console.log(response);
-        setPosts(response.data);
-        if (response.data.length === 0) {
-          setAlert("You do not have any posts.");
-        }
-      })
-      .catch(function (error) {
-        console.log(error.response.data);
-      });
-  };
+  // const onGetPosts = async (event) => {
+  //   event.preventDefault();
+  //   await axios
+  //     .get(`/api/query/posts/authorId/${author_Id}`, {})
+  //     .then(function (response) {
+  //       console.log(response);
+  //       setPosts(response.data);
+  //       if (response.data.length === 0) {
+  //         setAlert("You do not have any posts.");
+  //       }
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error.response.data);
+  //     });
+  // };
 
   const removeData = (id) => {
     axios
@@ -101,9 +104,9 @@ const PostTable = () => {
         </table>
       </div>
       <div>
-        <button onClick={onGetPosts} type="button" className="get-posts-btn">
+        {/* <button onClick={onGetPosts} type="button" className="get-posts-btn">
           Get my all Posts
-        </button>
+        </button> */}
       </div>
       <h2 className="h2-alert">{alert}</h2>
     </>

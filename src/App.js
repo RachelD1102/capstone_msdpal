@@ -14,13 +14,14 @@ import AdminNewsPage from "./Admin/AdminNewsPage";
 import AdminManage from "./Admin/AdminManage";
 import MyProfile from "./Users/UserPages/MyProfile";
 import CreatePost from "./Users/UserPages/CreatePost";
-import MyPosts from "./Users/UserPages/MyPosts";
+import MyPostsPage from "./Users/UserPages/MyPostsPage";
 import GetAllUser from "./Users/UserPages/GetAllUser";
 import RecruitmentPage from "./Users/UserPages/RecruitmentPage";
 import InternshipPage from "./Users/UserPages/InternshipPage";
 import DailyPage from "./Users/UserPages/DailyPage";
 import TechPage from "./Users/UserPages/TechPage";
 import MSDActivityPage from "./Users/UserPages/MSDActivityPage";
+import UserManagePage from "./Users/UserPages/UserManagePage";
 
 function App() {
   return (
@@ -37,7 +38,8 @@ function App() {
         <Route exat path="/admin-newspage" exact component={AdminNewsPage} />
         <Route exat path="/admin-managenews" exact component={AdminManage} />
         <Route exat path="/user-myprofile" exact component={MyProfile} />
-        <Route exat path="/user-myposts" exact component={MyPosts} /> 
+        <Route exat path="/user-myposts" exact component={MyPostsPage} />
+        <Route exat path="/user-myposts-manage" exact component={UserManagePage} />
         <Route exat path="/user-createposts" exact component={CreatePost} />
         <Route exat path="/admin-mainpage" exact component={AdminMainPage} />
         <Route exat path="/user-getallusers" exact component={GetAllUser} />

@@ -46,6 +46,11 @@ export default function PostCard(props) {
   };
 
   const [contents, setContents] = useState("");
+  
+  let imagePlaceholder = null;
+  if(props.img) {
+    imagePlaceholder = <img className="post-img" src={props.img} alt="" />
+  }
 
   return (
     <Card className="post-card">
@@ -56,7 +61,7 @@ export default function PostCard(props) {
         <Card.Title className="card-title">{props.title}</Card.Title>
         <Card.Text className="card-contents">{props.contents}</Card.Text>
         <div className="img-part">
-          <img className="post-img" src={props.img} alt="" />
+          {imagePlaceholder}
         </div>
         <p className="date-p">{formatDate(props.date)}</p>
 

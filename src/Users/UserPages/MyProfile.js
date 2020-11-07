@@ -2,18 +2,17 @@ import React, { useEffect, useState } from "react";
 import UserNavbar from "../UserNavbar";
 import "../SigninForm.css";
 import axios from "axios";
-import ButtonGroup from 'react-bootstrap/ButtonGroup'
+import ButtonGroup from "react-bootstrap/ButtonGroup";
 
 axios.defaults.withCredentials = true;
 
 export default function MyProfile() {
   //id, email, username, firstName, lastName, code, gradYear, *placement, *intro, *avatar, uid
   const [disabled, setDisabled] = useState(true);
-  const [isSubmited, setSubmited] = useState(false);
+  //const [isSubmited, setSubmited] = useState(false);
   const [userId, setUserid] = useState("");
-  // const [password, setPassword] = useState("");
   const [user, setUser] = useState({
-    id:"",
+    id: "",
     username: "",
     email: "", //same
     firstName: "",
@@ -23,14 +22,15 @@ export default function MyProfile() {
     placement: "",
     intro: "",
     code: "",
-    password:"",
+    password: "",
+    avatar: "",
   });
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({
       ...user,
-      [name]: value
+      [name]: value,
     });
   };
 
@@ -53,32 +53,34 @@ export default function MyProfile() {
       });
   }, []);
 
-
   //TODO: implement the edit function
   const onSave = async (event) => {
     event.preventDefault();
-    console.log(user);//
+    console.log(user); //
     console.log(user.email);
-    await axios.put(`/api/users/update/${userId}`, {
-      email: user.email,
-      password: user.password,
-      username: user.username,
-      firstName: user.firstName,
-      lastName: user.lastName,
-      code: user.code,
-      gradYear: user.gradYear,
-      uid: user.uid,
-      intro: user.intro,
-      placement: user.placement
-    })
+    await axios
+      .put(`/api/users/update/${userId}`, {
+        email: user.email,
+        password: user.password,
+        username: user.username,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        code: user.code,
+        gradYear: user.gradYear,
+        uid: user.uid,
+        intro: user.intro,
+        placement: user.placement,
+        avatar: user.avatar,
+      })
       .then(function (response) {
         console.log(response);
+        window.location.reload();
       })
       .catch(function (error) {
         console.log(error.response.data);
       });
   };
-  
+
   const onEdit = () => {
     setDisabled(false);
   };
@@ -89,7 +91,11 @@ export default function MyProfile() {
       <div className="profile-container">
         <div className="form-profile-content-left">
           <form className="form" noValidate>
-            <h1>My Profile</h1>
+            <h1 className="profile-myprofile">My Profile</h1>
+            <div>
+              <img className="avatar-img" src={user.avatar} />
+            </div>
+
             <div className="form-inputs">
               <label className="form-label">Username</label>
               <input
@@ -168,7 +174,7 @@ export default function MyProfile() {
               />
               {/* {errors.email && <p>{errors.email}</p>} */}
             </div>
-            <div className="form-inputs">
+            {/* <div className="form-inputs">
               <label className="form-label">Password</label>
               <input
                 disabled={disabled}
@@ -179,8 +185,8 @@ export default function MyProfile() {
                 value={user.password}
                 onChange={handleChange}
               />
-              {/* {errors.password && <p>{errors.password}</p>} */}
-            </div>
+              {errors.password && <p>{errors.password}</p>}
+            </div> */}
             <div className="form-inputs">
               <label className="form-label">Placement</label>
               <input
@@ -221,7 +227,33 @@ export default function MyProfile() {
               />
               {/* {errors.password2 && <p>{errors.password2}</p>} */}
             </div>
-           
+            <div className="form-inputs">
+              <label className="form-label">Avartar</label>
+              <input
+                disabled={disabled}
+                className="form-input"
+                type="text"
+                name="avatar"
+                placeholder="Please enter your photo url"
+                value={user.avatar}
+                onChange={handleChange}
+              />
+              {/* {errors.password2 && <p>{errors.password2}</p>} */}
+            </div>
+            <div className="form-inputs">
+              <label className="form-label">Password</label>
+              <input
+                disabled={disabled}
+                className="form-input"
+                type="text"
+                name="password"
+                placeholder="Please enter your password"
+                value={user.password}
+                onChange={handleChange}
+              />
+              {/* {errors.password && <p>{errors.password}</p>} */}
+            </div>
+
             <ButtonGroup className="btn-group">
               <button onClick={onEdit} className="edit-btn" type="button">
                 Edit
@@ -230,10 +262,14 @@ export default function MyProfile() {
                 Save
               </button>
             </ButtonGroup>
+            <p>
+              Tips: If you want to change your password, just submit your new
+              password! Otherwise, enter your original password.
+            </p>
           </form>
         </div>
         <div className="form-content-right">
-          <img className="form-img" src="img/img3.jpeg" alt="theU" />
+          <img className="form-img" src="img/img7.jpeg" alt="theU" />
         </div>
       </div>
     </>

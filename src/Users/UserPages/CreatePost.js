@@ -25,6 +25,9 @@ export default function CreatePost() {
       .then(function (response) {
         console.log(response);
         setSuccess(true);
+        setTimeout(function() {
+          window.location.href = window.location;
+       }, 3000);
       })
       .catch(function (error) {
         console.log(error.response.data);

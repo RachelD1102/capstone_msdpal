@@ -4,6 +4,12 @@
   margin-top: 10px;
 }
 
+.card-body {
+  background: linear-gradient( 90deg, rgb(196, 225, 250) 0%,
+   rgb(232, 247, 201) 100% );
+}
+
+
 .cmt-text-box {
   display: block;
   padding-left: 10px;
@@ -63,4 +69,17 @@
   color: #595959;
   font-size: 1rem;
   justify-self: end;
+}
+
+.btn-manageposts {
+ margin-left: 90%;
+ margin-top: 1rem;
+ margin-bottom: 2rem;
+ color: #fff;
+ background: rgb(175, 162, 238);
+ align-items: center;
+ border-radius: 0.3rem;
+ border: none;
+ height: 30px;
+ width: 150px;
 }
