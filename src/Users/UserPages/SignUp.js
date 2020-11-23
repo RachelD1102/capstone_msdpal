@@ -20,7 +20,6 @@ const SignUp = ({ submitForm }) => {
     <>
       <Navbar />
       <div className="form-container">
-        <span className="close-btn">x</span>
         <div className="form-content-left">
           <img className="form-img" src="img/img2.jpg" alt="theU" />
         </div>
@@ -37,7 +36,7 @@ const SignUp = ({ submitForm }) => {
                 value={user.username}
                 onChange={handleChange}
               />
-              {errors.username && <p>{errors.username}</p>}
+              {errors.username && <span className="error-display">{errors.username}</span>}
             </div>
             <div className="form-inputs">
               <label className="form-label">First Name</label>
@@ -49,7 +48,7 @@ const SignUp = ({ submitForm }) => {
                 value={user.firstName}
                 onChange={handleChange}
               />
-              {errors.firstName && <p>{errors.firstName}</p>}
+              {errors.firstName && <span className="error-display">{errors.firstName}</span>}
             </div>
             <div className="form-inputs">
               <label className="form-label">Last Name</label>
@@ -61,7 +60,7 @@ const SignUp = ({ submitForm }) => {
                 value={user.lastName}
                 onChange={handleChange}
               />
-              {errors.lastName && <p>{errors.lastName}</p>}
+              {errors.lastName && <span className="error-display">{errors.lastName}</span>}
             </div>
             <div className="form-inputs">
               <label className="form-label">uNID</label>
@@ -73,7 +72,7 @@ const SignUp = ({ submitForm }) => {
                 value={user.uid}
                 onChange={handleChange}
               />
-              {errors.uid && <p>{errors.uid}</p>}
+              {errors.uid && <span className="error-display">{errors.uid}</span>}
             </div>
             <div className="form-inputs">
               <label className="form-label">Grad Year</label>
@@ -85,7 +84,7 @@ const SignUp = ({ submitForm }) => {
                 value={user.gradYear}
                 onChange={handleChange}
               />
-              {errors.gradYear && <p>{errors.gradYear}</p>}
+              {errors.gradYear && <span className="error-display">{errors.gradYear}</span>}
             </div>
             <div className="form-inputs">
               <label className="form-label">Email</label>
@@ -97,7 +96,7 @@ const SignUp = ({ submitForm }) => {
                 value={user.email}
                 onChange={handleChange}
               />
-              {errors.email && <p>{errors.email}</p>}
+              {errors.email && <span className="error-display">{errors.email}</span>}
             </div>
             <div className="form-inputs">
               <label className="form-label">Password</label>
@@ -109,7 +108,7 @@ const SignUp = ({ submitForm }) => {
                 value={user.password}
                 onChange={handleChange}
               />
-              {errors.password && <p>{errors.password}</p>}
+              {errors.password && <span className="error-display">{errors.password}</span>}
             </div>
             <div className="form-inputs">
               <label className="form-label">Confirm Password</label>
@@ -121,7 +120,7 @@ const SignUp = ({ submitForm }) => {
                 value={user.password2}
                 onChange={handleChange}
               />
-              {errors.password2 && <p>{errors.password2}</p>}
+              {errors.password2 && <span className="error-display">{errors.password2}</span>}
             </div>
             <div className="form-inputs">
               <label className="form-label">Invitation Code</label>
@@ -133,8 +132,8 @@ const SignUp = ({ submitForm }) => {
                 value={user.code}
                 onChange={handleChange}
               />
-              {errors.code && <p>{errors.code}</p>}
-              {<p>{isCodeWrong}</p>}
+              {errors.code && <span className="error-display">{errors.code}</span>}
+              {<span className="error-display">{isCodeWrong}</span>}
             </div>
             <button className="form-input-btn" type="submit">
               Sign up
