@@ -5,9 +5,8 @@ import { Redirect } from "react-router-dom";
 import Navbar from "../LandingPage/navBar";
 
 export default function AdminSignIn() {
-
   const [password, setPassword] = useState("");
-  const [isSubmit, setSubmit] = useState(false);
+  const [isSubmitted, setSubmitted] = useState(false);
   const [errorData, setErrordata] = useState("");
 
   const onSignin = async (event) => {
@@ -18,7 +17,7 @@ export default function AdminSignIn() {
       })
       .then(function (response) {
         console.log(response);
-        setSubmit(true);
+        setSubmitted(true);
       })
       .catch(function (error) {
         console.log(error.response.data);
@@ -26,7 +25,7 @@ export default function AdminSignIn() {
       });
   };
 
-  if(isSubmit) return <Redirect to="/admin-mainpage" />;
+  if (isSubmitted) return <Redirect to="/admin-mainpage" />;
   return (
     <div>
       <Navbar />
@@ -49,12 +48,13 @@ export default function AdminSignIn() {
                 />
               </div>
               <button
-              onClick={onSignin}
-              className="form-input-btn" 
-              type="submit">
-              Sign in
-            </button>
-            <h2 className="error-display">{errorData}</h2>
+                onClick={onSignin}
+                className="form-input-btn"
+                type="submit"
+              >
+                Sign in
+              </button>
+              <h2 className="error-display">{errorData}</h2>
             </form>
           </div>
         </div>

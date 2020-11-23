@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import "../Users/SigninForm.css";
-import { Redirect } from "react-router-dom";
-import Navbar from "../LandingPage/navBar";
+import React, { useState } from "react"
+import "../Users/SigninForm.css"
+import { Redirect } from "react-router-dom"
+import Navbar from "../LandingPage/navBar"
 
 export default function AdminMainPage() {
 
@@ -19,7 +19,7 @@ export default function AdminMainPage() {
 
   const onManageSection = () => {
     setManage(true);
-  }
+  };
 
   if(isCode) return <Redirect to="admin-codepage" />
   if(isNews) return <Redirect to="admin-newspage" />

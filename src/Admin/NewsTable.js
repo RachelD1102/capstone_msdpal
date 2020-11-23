@@ -16,31 +16,17 @@ const NewsTable = () => {
     setNews(response.data);
   };
 
-  // const onDeleteData = async (event) => {
-  //     event.preventDefault();
-  //     await axios
-  //       .post("/api/admin/new_user", {
-  //         adminPassword: password,
-  //         uid: uID,
-  //       })
-  //       .then(function (response) {
-  //         console.log(response);
-  //         setResponseCode(response.data.code);
-  //       })
-  //       .catch(function (error) {
-  //         console.log(error.response.data);
-  //       });
-  //   };
-
   const removeData = (id) => {
-    axios.delete(`/api/news/${id}`, {}).
-    then(function (response){
-      const del = news.filter((news) => id !== news.id);
-      setNews(del);
-      console.log(response);
-    }).catch(function (error) {
+    axios
+      .delete(`/api/news/${id}`, {})
+      .then(function (response) {
+        const del = news.filter((news) => id !== news.id);
+        setNews(del);
+        console.log(response);
+      })
+      .catch(function (error) {
         console.log(error.response.data);
-    });
+      });
   };
 
   const renderHeader = () => {

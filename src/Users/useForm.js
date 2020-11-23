@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from "axios";
 
 const useForm = (callback, validate) => {
+
   const [user, setUser] = useState({
     username: '',
     firstName: '',
@@ -13,10 +14,10 @@ const useForm = (callback, validate) => {
     password2: '',
     code: '',
   });
+  
   const [errors, setErrors] = useState({});
   const [isVerified, setVerified] = useState(false);
   const [isCodeWrong, setCodewrong] = useState("");
-  //const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -51,7 +52,6 @@ const useForm = (callback, validate) => {
           setCodewrong("Please check your invitation code and uid!");
         }
       });
-
       setErrors(validate(user));
   };
 

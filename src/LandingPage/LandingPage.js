@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import ControlledCarousel from "./ControlledCarousel";
 import Navbar from "./navBar";
-import "./LandingPage.css";
 import axios from "axios";
 
 function LandingPage() {
+  //local variable to receive news data from backend
   const [news, setNews] = useState([]);
 
+  //fetch data from backend with 3 latest news
   useEffect(() => {
     axios
       .get("/api/query/news/latest/3", {})
@@ -18,6 +19,7 @@ function LandingPage() {
         console.log(error);
       });
   }, []);
+  //use [] as the second parameter, if it is changed, trigger to reload the window
 
   return (
     <div>

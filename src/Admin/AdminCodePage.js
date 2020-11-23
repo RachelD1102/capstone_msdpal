@@ -18,14 +18,12 @@ export default function AdminCodePage() {
       .then(function (response) {
         console.log(response);
         setResponseCode(response.data.code);
+        setErrordata("");
       })
       .catch(function (error) {
         console.log(error.response.data);
-        if (error.response.status === 401) {
-          setErrordata("The password is wrong!");
-        }
         if (error.response.status === 400) {
-          setErrordata("Uid is in use!");
+          setErrordata("The uid is in use!");
         }
       });
   };
@@ -42,12 +40,8 @@ export default function AdminCodePage() {
       })
       .catch(function (error) {
         console.log(error.response.data);
-        if (error.response.status === 401) {
-          setErrordata("The password is wrong!");
-        }
       });
   };
-
 
   return (
     <div>

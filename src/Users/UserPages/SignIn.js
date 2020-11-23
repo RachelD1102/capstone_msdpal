@@ -42,7 +42,7 @@ export default function SignIn() {
     <Navbar />
     <div className="sign-up-page">
       <div className="form-container">
-        <span className="close-btn">×</span>
+        {/* <span className="close-btn">×</span> */}
         <div className="form-content-left">
           <img className="form-img" src="img/img2.jpg" alt="theU" />
         </div>

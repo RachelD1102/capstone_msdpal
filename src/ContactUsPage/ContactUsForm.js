@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './ContactUsForm.css'
 
 
-export default function AboutUsForm() {
+export default function CoutactUsForm() {
   return (
     <div className="container">
     <Card className="aboutus-card">
