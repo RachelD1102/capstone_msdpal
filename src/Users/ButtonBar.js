@@ -64,7 +64,7 @@ export default function ButtonBar() {
   const onMSDActivity = async (event) => {
     event.preventDefault();
     await axios
-      .get("/api/query/posts/category/MSDActivity", {})
+      .get("/api/query/posts/category/MSDEvents", {})
       .then(function (response) {
         console.log(response);
         setMSD(true);
@@ -109,7 +109,7 @@ export default function ButtonBar() {
         className="btn-4"
         type="button"
         onClick={onMSDActivity}
-        >MSD Activity</button>
+        >MSD Events</button>
       </ButtonGroup>
       <ButtonGroup className="mr-2">
         <button 

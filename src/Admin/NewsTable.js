@@ -71,7 +71,7 @@ const NewsTable = () => {
   return (
     <>
       <div className="table-container">
-        <table id="News">
+        <table className="post-table-body">
           <thead>
             <tr>{renderHeader()}</tr>
           </thead>

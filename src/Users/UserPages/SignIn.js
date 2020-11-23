@@ -42,7 +42,6 @@ export default function SignIn() {
     <Navbar />
     <div className="sign-up-page">
       <div className="form-container">
-        {/* <span className="close-btn">×</span> */}
         <div className="form-content-left">
           <img className="form-img" src="img/img2.jpg" alt="theU" />
         </div>
@@ -54,12 +53,10 @@ export default function SignIn() {
               <input
                 className="form-input"
                 type="email"
-                // name="email"
                 placeholder="Enter your email"
                 value={email}
                 onChange={ e => setEmail(e.target.value) }
               />
-              {/* {errors.email && <p>{errors.email}</p>} */}
             </div>
             <div className="form-inputs">
               <label className="form-label">Password</label>

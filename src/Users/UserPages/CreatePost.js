@@ -25,14 +25,14 @@ export default function CreatePost() {
       .then(function (response) {
         console.log(response);
         setSuccess(true);
-        setTimeout(function() {
+        setTimeout(function () {
           window.location.href = window.location;
-       }, 3000);
+        }, 3000);
       })
       .catch(function (error) {
         console.log(error.response.data);
-        if(error.response.status === 400){
-          setErrerdata("Post title, contents and category are required!")
+        if (error.response.status === 400) {
+          setErrerdata("Post title, contents and category are required!");
         }
       });
   };
@@ -94,27 +94,19 @@ export default function CreatePost() {
           <div className="post-container">
             <label className="form-label">Category</label>
             <div>
-            <select
-            className="select-option"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            >
-              <option>Choose a categroy</option>
-              <option value="Internship">Internship</option>
-              <option value="Recruitment">Recruitment</option>
-              <option value="DailyLife">Daily Life</option>
-              <option value="TechnicalResources">Technical Resources</option>
-              <option value="MSDActivity">MSD Activity</option>
-            </select>
+              <select
+                className="select-option"
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+              >
+                <option>Choose a categroy</option>
+                <option value="Internship">Internship</option>
+                <option value="Recruitment">Recruitment</option>
+                <option value="DailyLife">Daily Life</option>
+                <option value="TechnicalResources">Technical Resources</option>
+                <option value="MSDEvents">MSD Events</option>
+              </select>
             </div>
-            {/* <input
-              className="post-title"
-              type="text"
-              placeholder="Enter the category"
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
-            /> */}
-            {/* {errors.username && <p>{errors.username}</p>} */}
           </div>
           <button
             onClick={onCreatePost}
@@ -123,7 +115,7 @@ export default function CreatePost() {
           >
             Submit
           </button>
-          <h2  className="error-display">{errorData}</h2>
+          <h2 className="error-display">{errorData}</h2>
         </form>
       </div>
     </>

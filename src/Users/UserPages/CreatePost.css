@@ -73,6 +73,16 @@
   padding: 6px;
 }
 
+.post-submit-btn:hover {
+  cursor: pointer;
+  background: linear-gradient(
+    90deg,
+    rgb(233, 206, 141) 0%,
+    rgb(228, 180, 76) 100%
+  );
+  transition: all 0.4s ease-out;
+}
+
 .post-title {
   display: block;
   padding-left: 10px;
@@ -87,6 +97,7 @@
   height: 50px;
   width: 30%;
   color: rgb(108, 110, 111);
+  border-radius: 6px;
 }
 
 .error-display {

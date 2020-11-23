@@ -23,22 +23,6 @@ const PostTable = () => {
     getPosts();
   }, []);
 
-  // const onGetPosts = async (event) => {
-  //   event.preventDefault();
-  //   await axios
-  //     .get(`/api/query/posts/authorId/${author_Id}`, {})
-  //     .then(function (response) {
-  //       console.log(response);
-  //       setPosts(response.data);
-  //       if (response.data.length === 0) {
-  //         setAlert("You do not have any posts.");
-  //       }
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error.response.data);
-  //     });
-  // };
-
   const removeData = (id) => {
     axios
       .delete(`/api/posts/${id}`, {})
@@ -96,17 +80,14 @@ const PostTable = () => {
   return (
     <>
       <div className="table-container">
-        <table id="News">
+        <table className="post-table-body">
           <thead>
-            <tr>{renderHeader()}</tr>
+            <tr>{renderHeader()}</tr> 
           </thead>
           <tbody>{renderBody()}</tbody>
         </table>
       </div>
       <div>
-        {/* <button onClick={onGetPosts} type="button" className="get-posts-btn">
-          Get my all Posts
-        </button> */}
       </div>
       <h2 className="h2-alert">{alert}</h2>
     </>

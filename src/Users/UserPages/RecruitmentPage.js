@@ -42,9 +42,6 @@ export default function RecruitmentPage() {
           />
         ))}
       </div>
-      {/* <div>
-        <UserMainPagination />
-      </div> */}
     </>
   );
 }

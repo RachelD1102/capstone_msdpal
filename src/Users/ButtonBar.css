@@ -10,53 +10,115 @@
   background-color: rgb(154, 161, 212);
   color: rgb(255, 255, 255);
   font-size: 1rem;
-  border-radius: 2px;
+  border-radius: 5px;
   outline: none;
   border: none;
-  height: 40px;
-  width: 100px;
+  height: 50px;
+  width: 110px;
+}
+
+.btn-1:hover {
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  background: linear-gradient(
+    90deg,
+    rgb(161, 141, 233) 0%,
+    rgb(79, 43, 186) 100%
+  );
+  transition: all 0.2s ease-out;
 }
 
 .btn-2 {
   background-color: rgb(223, 191, 157);
   color: #fff;
   font-size: 1rem;
-  border-radius: 2px;
+  border-radius: 5px;
   outline: none;
   border: none;
-  height: 40px;
-  width: 100px;
+  height: 50px;
+  width: 110px;
+}
+
+.btn-2:hover {
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  background: linear-gradient(
+    90deg,
+    rgb(233, 199, 141) 0%,
+    rgb(223, 153, 48) 100%
+  );
+  transition: all 0.2s ease-out;
 }
 
 .btn-3 {
   background-color: rgb(238, 167, 198);
   color: #fff;
   font-size: 1rem;
-  border-radius: 2px;
+  border-radius: 5px;
   outline: none;
   border: none;
-  height: 40px;
-  width: 150px;
+  height: 50px;
+  width: 160px;
+}
+
+.btn-3:hover {
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  background: linear-gradient(
+    90deg,
+    rgb(225, 169, 236) 0%,
+    rgb(232, 78, 183) 100%
+  );
+  transition: all 0.2s ease-out;
 }
 
 .btn-4 {
   background-color: rgb(147, 175, 223);
   color: #fff;
   font-size: 1rem;
-  border-radius: 2px;
+  border-radius: 5px;
   outline: none;
   border: none;
-  height: 40px;
-  width: 100px;
+  height: 50px;
+  width: 110px;
+}
+
+.btn-4:hover {
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.1rem;
+  background: linear-gradient(
+    90deg,
+    rgb(141, 186, 233) 0%,
+    rgb(53, 108, 203) 100%
+  );
+  transition: all 0.2s ease-out;
 }
 
 .btn-5 {
   background-color: rgb(194, 222, 162);
   color: #fff;
   font-size: 1rem;
-  border-radius: 2px;
+  border-radius: 5px;
   outline: none;
   border: none;
-  height: 40px;
-  width: 100px;
+  height: 50px;
+  width: 110px;
 }
+
+.btn-5:hover {
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.1rem;
+  background: linear-gradient(
+    90deg,
+    rgb(186, 233, 190) 0%,
+    rgb(85, 196, 126) 100%
+  );
+  transition: all 0.2s ease-out;
+}
+
+

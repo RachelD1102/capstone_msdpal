@@ -42,9 +42,6 @@ export default function InternshipPage() {
           />
         ))}
       </div>
-      {/* <div>
-        <UserMainPagination />
-      </div> */}
     </>
   );
 }

@@ -42,9 +42,6 @@ export default function DailyPage() {
           />
         ))}
       </div>
-      {/* <div>
-        <UserMainPagination />
-      </div> */}
     </>
   );
 }

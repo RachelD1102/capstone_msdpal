@@ -9,7 +9,7 @@ export default function MyPostsPage() {
   const [user, setUser] = useState({
     id: "",
     username: "",
-    email: "", //same
+    email: "",
     firstName: "",
     lastName: "",
     uid: "",
@@ -33,7 +33,7 @@ export default function MyPostsPage() {
   
   useEffect(() => {
     axios
-      .get("/api/users/me", {})//return promise object (未决定-success、fail)
+      .get("/api/users/me", {})//return promise object (success fail)
       .then(function (response) {//instance method -> callback response is the value
         console.log(response);
         const currentuser = response.data;
@@ -61,7 +61,6 @@ export default function MyPostsPage() {
   }, []);
 
   //console.log(user);
-
   if(isManage) return <Redirect to="user-myposts-manage" />
 
   return (

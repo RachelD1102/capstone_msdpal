@@ -11,7 +11,7 @@ export default function MSDActivityPage() {
   
   useEffect(() => {
     axios
-      .get("/api/query/posts/category/MSDActivity", {})
+      .get("/api/query/posts/category/MSDEvents", {})
       .then(function (response) {
         console.log(response);
         //post_data = response.data;
@@ -42,9 +42,6 @@ export default function MSDActivityPage() {
           />
         ))}
       </div>
-      {/* <div>
-        <UserMainPagination />
-      </div> */}
     </>
   );
 }

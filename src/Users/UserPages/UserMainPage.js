@@ -3,7 +3,6 @@ import PostCard from "../PostCard";
 import UserNavbar from "../UserNavbar";
 import ButtonBar from "../ButtonBar";
 import axios from "axios";
-import UserMainPagination from "../Pagination";
 
 export default function UserMainpage() {
   //GET /api/query/posts/latest/:num
@@ -43,9 +42,6 @@ export default function UserMainpage() {
           />
         ))}
       </div>
-      {/* <div>
-        <UserMainPagination />
-      </div> */}
     </>
   );
 }
