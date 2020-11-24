@@ -8,7 +8,7 @@ import "./PostCard.css";
 import axios from "axios";
 
 export default function PostCard(props) {
-
+  //let user_avatar = sessionStorage.getItem("avatar");
   function formatDate(date) {
     var d = new Date(date);
     d = d.toLocaleString();
@@ -46,33 +46,32 @@ export default function PostCard(props) {
   };
 
   const [contents, setContents] = useState("");
-  
+
   let imagePlaceholder = null;
-  if(props.img) {
-    imagePlaceholder = <img className="post-img" src={props.img} alt="" />
+  if (props.img) {
+    imagePlaceholder = <img className="post-img" src={props.img} alt="" />;
   }
 
   return (
     <Card className="post-card">
       <Card.Header>
+        {/* <span>{user_avatar}</span><img className="avatar-img" src={user.avatar} /> */}
         <Link className="card-username">{props.username}</Link>
       </Card.Header>
       <Card.Body>
         <Card.Title className="card-title">{props.title}</Card.Title>
         <Card.Text className="card-contents">{props.contents}</Card.Text>
-        <div className="img-part">
-          {imagePlaceholder}
-        </div>
+        <div className="img-part">{imagePlaceholder}</div>
         <p className="date-p">{formatDate(props.date)}</p>
 
         <div className="Comment">
-        {cmts.map((c) => (
-          <CommentPart
-          cmt_author={c.author}
-          cmt_contents={c.contents}
-          cmt_date={c.date}
-          />
-        ))}
+          {cmts.map((c) => (
+            <CommentPart
+              cmt_author={c.author}
+              cmt_contents={c.contents}
+              cmt_date={c.date}
+            />
+          ))}
         </div>
 
         <div className="cmt-submit-box">

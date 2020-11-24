@@ -21,6 +21,8 @@ export default function SignIn() {
       .then(function (response) {
         console.log(response);
         sessionStorage.setItem("userId", response.data.id);
+        sessionStorage.setItem("username", response.data.username);
+        sessionStorage.setItem("avatar", response.data.avatar);
         console.log(response.data.status);
         if(response.status === 200){
           setSignin(true);

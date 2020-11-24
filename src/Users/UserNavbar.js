@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "../LandingPage/navBar.css";
 
 export default function UserNavbar() {
+  let userName = sessionStorage.getItem("username");
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
 
@@ -92,6 +93,9 @@ export default function UserNavbar() {
             <Link to="/" className="nav-links" onClick={closeMobileMenu}>
               Sign out
             </Link>
+          </li>
+          <li className="nav-item">
+            <span className="hello-username">{"Hello" + " " + userName + "!"}</span>
           </li>
         </ul>
       </nav>

@@ -27,13 +27,8 @@ export default function validateInfo(user) {
       errors.uid = 'uNID should be 8 characters';
     }
     
-    let number;
-    if(!user.gradYear.trim()){
-      errors.gradYear = 'Grad Year is required'
-    }else if (user.gradYear.length < 4) {
-      errors.gradYear = 'Grad year is invalid';
-    }else if(number = parseInt(user.gradYear) < 2016) {
-      errors.gradYear = 'Grad year is invalid';
+    if(user.gradYear < 2016){
+      errors.gradYear = 'Grad Year is invalid'
     }
 
     if (!user.email) {
