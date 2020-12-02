@@ -88,5 +88,6 @@ export default function PostCard(props) {
         </div>
       </Card.Body>
     </Card>
+
   );
 }

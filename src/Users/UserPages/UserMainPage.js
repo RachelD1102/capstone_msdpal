@@ -14,8 +14,6 @@ export default function UserMainpage() {
       .get("/api/query/posts/latest/100", {})
       .then(function (response) {
         console.log(response);
-        //post_data = response.data;
-        //console.log(post_data);
         setPosts(response.data);
       })
       .catch(function (error) {
