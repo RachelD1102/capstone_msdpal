@@ -15,7 +15,7 @@ With MSDPal, you can scan MSD news, find interested alumni, and send posts about
 * Post blogs so every alumni can like and comment.
 * (Optional) Send instant messages to whoever you want to talk.
 * (Optional) Build iOS and Android apps with the same functions using react native.
-#### Users w/ Different Authority
+#### Users Different Authority
 * Authorization system ensure that different user have different access to functions of the app: Faculties as administrators can manage and delete users and see all the informations. Alumni can see other people’s public account info and posts. Visitors can only scan the news about MSD program. 
 * Invitation Code will send manually to invite faculties and alumni to create account. Visitors cannot sign up.  
 #### Responsive Web App
